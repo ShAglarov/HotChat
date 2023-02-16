@@ -9,7 +9,30 @@ import UIKit
 
 extension MainViewController {
     
-    func setScrollView() {
+    func viewsConfigure() {
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .systemGreen
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .systemBlue
+    }
+    
+    func elementsConfigure() {
+        loginTextField.translatesAutoresizingMaskIntoConstraints = false
+        loginTextField.borderStyle = .roundedRect
+        loginTextField.font = .italicSystemFont(ofSize: 15)
+        loginTextField.placeholder = "Enter login"
+        addLefImageTo(textField: loginTextField, image: UIImage(named: "loginBackground")!)
+        
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.font = .italicSystemFont(ofSize: 15)
+        passwordTextField.placeholder = "Enter password"
+        addLefImageTo(textField: passwordTextField, image: UIImage(named: "passwordBackground")!)
+    }
+    
+    func setScrollViewConstrains() {
                 
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -56,7 +79,7 @@ extension MainViewController {
             .isActive = true
     }
     
-    func setupViews() {
+    func setViewsConstraints() {
         
         let const: CGFloat = 20
         
@@ -76,10 +99,6 @@ extension MainViewController {
             ).isActive = true
         loginTextField.heightAnchor
             .constraint(equalToConstant: 50).isActive = true
-//        loginTextField.widthAnchor
-//            .constraint(
-//                equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: const / (const+5)
-//            ).isActive = true
         
         contentView.addSubview(passwordTextField)
         passwordTextField.leadingAnchor
@@ -97,20 +116,5 @@ extension MainViewController {
             ).isActive = true
         passwordTextField.heightAnchor
             .constraint(equalToConstant: 50).isActive = true
-    }
-    
-    func addLefImageTo(textField: UITextField, image: UIImage) {
-        
-        let leftImageView = UIImageView()
-        
-        leftImageView.image = image
-        
-        textField.leftView = leftImageView
-        textField.leftViewMode = .always
-    }
-    
-    func viewBackGroundColor() {
-        scrollView.backgroundColor = .systemGreen
-        contentView.backgroundColor = .systemBlue
     }
 }
