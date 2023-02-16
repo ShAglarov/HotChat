@@ -44,47 +44,73 @@ extension MainViewController {
             ).isActive = true
                 contentView.topAnchor
             .constraint(
-                equalTo: scrollView.topAnchor
+                equalTo: scrollView.topAnchor,
+                constant: 50
             ).isActive = true
                 contentView.bottomAnchor
             .constraint(
                 equalTo: scrollView.bottomAnchor
             ).isActive = true
                 contentView.heightAnchor
-            .constraint(equalToConstant: 420)
+            .constraint(equalToConstant: 600)
             .isActive = true
     }
     
     func setupViews() {
         
+        let const: CGFloat = 20
+        
         contentView.addSubview(loginTextField)
-        loginTextField.centerXAnchor
+        loginTextField.leftAnchor
             .constraint(
-                equalTo: contentView.centerXAnchor
+                equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
+                constant: const
             ).isActive = true
         loginTextField.topAnchor
             .constraint(
-                equalTo: contentView.topAnchor,
-            constant: 50
+                equalTo: contentView.topAnchor
             ).isActive = true
-        loginTextField.widthAnchor
-            .constraint(
-                equalTo: contentView.widthAnchor, multiplier: 3/4
+        loginTextField.rightAnchor
+            .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
+                        constant: -const
             ).isActive = true
+        loginTextField.heightAnchor
+            .constraint(equalToConstant: 50).isActive = true
+//        loginTextField.widthAnchor
+//            .constraint(
+//                equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: const / (const+5)
+//            ).isActive = true
         
         contentView.addSubview(passwordTextField)
-        passwordTextField.centerXAnchor
+        passwordTextField.leadingAnchor
             .constraint(
-                equalTo: contentView.centerXAnchor
+                equalTo: loginTextField.leadingAnchor
             ).isActive = true
         passwordTextField.topAnchor
             .constraint(
                 equalTo: loginTextField.bottomAnchor,
                 constant: 25
             ).isActive = true
-        passwordTextField.widthAnchor
+        passwordTextField.trailingAnchor
             .constraint(
-                equalTo: contentView.widthAnchor, multiplier: 3/4
+                equalTo: loginTextField.trailingAnchor
             ).isActive = true
+        passwordTextField.heightAnchor
+            .constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func addLefImageTo(textField: UITextField, image: UIImage) {
+        
+        let leftImageView = UIImageView()
+        
+        leftImageView.image = image
+        
+        textField.leftView = leftImageView
+        textField.leftViewMode = .always
+    }
+    
+    func viewBackGroundColor() {
+        scrollView.backgroundColor = .systemGreen
+        contentView.backgroundColor = .systemBlue
     }
 }

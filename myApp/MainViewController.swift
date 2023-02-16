@@ -55,9 +55,10 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewBackGroundColor()
         setScrollView()
-        
         setupViews()
+        addLefImageTo(textField: loginTextField, image: UIImage(named: "loginBackground")!)
+        addLefImageTo(textField: passwordTextField, image: UIImage(named: "passwordBackground")!)
     }
 }
