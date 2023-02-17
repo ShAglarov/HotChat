@@ -41,6 +41,12 @@ extension MainViewController {
         passwordTextField.textColor = .darkText
         addLefImageTo(textField: passwordTextField, image: UIImage(named: "passwordBackground")!)
         
+        enterButton.translatesAutoresizingMaskIntoConstraints = false
+        enterButton.layer.cornerRadius = 5
+        enterButton.setTitle("Log in", for: .normal)
+        enterButton.tintColor = .darkText
+        enterButton.backgroundColor = UIColor(patternImage: UIImage(named: "buttonBackground")!)
+        
     }
     
     func setScrollViewConstrains() {
@@ -91,12 +97,11 @@ extension MainViewController {
             .isActive = true
     }
     
-    func setViewsConstraints() {
+    func setViewElementsConstraints() {
         
         let const: CGFloat = 20
         
         scrollView.insertSubview(imageVeiw, at: 0)
-        
         imageVeiw.centerXAnchor
             .constraint(
                 equalTo: scrollView.safeAreaLayoutGuide.centerXAnchor
@@ -120,14 +125,14 @@ extension MainViewController {
         loginTextField.topAnchor
             .constraint(
                 equalTo: contentView.topAnchor,
-                constant: 30
+                constant: 25
             ).isActive = true
         loginTextField.rightAnchor
             .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
                         constant: -const
             ).isActive = true
         loginTextField.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalToConstant: 60).isActive = true
         
         contentView.addSubview(passwordTextField)
         passwordTextField.leadingAnchor
@@ -137,13 +142,32 @@ extension MainViewController {
         passwordTextField.topAnchor
             .constraint(
                 equalTo: loginTextField.bottomAnchor,
-                constant: 25
+                constant: 13
             ).isActive = true
         passwordTextField.trailingAnchor
             .constraint(
                 equalTo: loginTextField.trailingAnchor
             ).isActive = true
         passwordTextField.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalToConstant: 60).isActive = true
+        
+        contentView.addSubview(enterButton)
+        NSLayoutConstraint.activate([
+            enterButton.leadingAnchor
+                .constraint(
+                    equalTo: passwordTextField.leadingAnchor
+                ),
+            enterButton.topAnchor
+                .constraint(
+                    equalTo: passwordTextField.bottomAnchor,
+                    constant: 13
+                ),
+            enterButton.trailingAnchor
+                .constraint(
+                    equalTo: passwordTextField.trailingAnchor
+                ),
+            enterButton.heightAnchor
+                .constraint(equalToConstant: 50)
+        ])
     }
 }

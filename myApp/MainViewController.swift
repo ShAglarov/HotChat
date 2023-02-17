@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     let imageVeiw = UIImageView()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
+    let enterButton = UIButton()
     
     func addLefImageTo(textField: UITextField, image: UIImage) {
         
@@ -39,7 +40,7 @@ class MainViewController: UIViewController {
         setScrollViewConstrains()
         elementsConfigure()
         setScrollViewConstrains()
-        setViewsConstraints()
+        setViewElementsConstraints()
         
     }
 }
