@@ -11,11 +11,17 @@ extension MainViewController {
     
     func viewsConfigure() {
         
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "viewBackground")!)
+        
+        imageVeiw.image = UIImage(named: "headerBackground")
+        imageVeiw.contentMode = .topRight
+        
+        imageVeiw.translatesAutoresizingMaskIntoConstraints = false
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemGreen
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = .systemBlue
+        contentView.backgroundColor = UIColor(patternImage: UIImage(named: "scrollViewBackground")!)
     }
     
     func elementsConfigure() {
@@ -23,19 +29,25 @@ extension MainViewController {
         loginTextField.borderStyle = .roundedRect
         loginTextField.font = .italicSystemFont(ofSize: 15)
         loginTextField.placeholder = "Enter login"
+        loginTextField.backgroundColor = UIColor(patternImage: UIImage(named: "textFieldBackground")!)
+        loginTextField.textColor = .darkText
         addLefImageTo(textField: loginTextField, image: UIImage(named: "loginBackground")!)
         
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.font = .italicSystemFont(ofSize: 15)
         passwordTextField.placeholder = "Enter password"
+        passwordTextField.backgroundColor = UIColor(patternImage: UIImage(named: "textFieldBackground")!)
+        passwordTextField.textColor = .darkText
         addLefImageTo(textField: passwordTextField, image: UIImage(named: "passwordBackground")!)
+        
     }
     
     func setScrollViewConstrains() {
                 
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        contentView.layer.cornerRadius = 10
         
         scrollView.centerXAnchor
             .constraint(
@@ -68,20 +80,36 @@ extension MainViewController {
                 contentView.topAnchor
             .constraint(
                 equalTo: scrollView.topAnchor,
-                constant: 50
+                constant: 130
             ).isActive = true
                 contentView.bottomAnchor
             .constraint(
                 equalTo: scrollView.bottomAnchor
             ).isActive = true
                 contentView.heightAnchor
-            .constraint(equalToConstant: 600)
+            .constraint(equalToConstant: 523)
             .isActive = true
     }
     
     func setViewsConstraints() {
         
         let const: CGFloat = 20
+        
+        scrollView.insertSubview(imageVeiw, at: 0)
+        
+        imageVeiw.centerXAnchor
+            .constraint(
+                equalTo: scrollView.safeAreaLayoutGuide.centerXAnchor
+            ).isActive = true
+        imageVeiw.topAnchor
+            .constraint(
+                equalTo: scrollView.topAnchor,
+                constant: -const
+            ).isActive = true
+        imageVeiw.bottomAnchor
+            .constraint(
+                equalTo: scrollView.bottomAnchor
+            ).isActive = true
         
         contentView.addSubview(loginTextField)
         loginTextField.leftAnchor
@@ -91,7 +119,8 @@ extension MainViewController {
             ).isActive = true
         loginTextField.topAnchor
             .constraint(
-                equalTo: contentView.topAnchor
+                equalTo: contentView.topAnchor,
+                constant: 30
             ).isActive = true
         loginTextField.rightAnchor
             .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,

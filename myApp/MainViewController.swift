@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
+    let imageVeiw = UIImageView()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     
@@ -22,6 +23,13 @@ class MainViewController: UIViewController {
         
         textField.leftView = leftImageView
         textField.leftViewMode = .always
+    }
+    
+    func addImageInView() {
+        
+        
+        
+        
     }
 
     override func viewDidLoad() {
