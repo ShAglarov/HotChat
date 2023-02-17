@@ -16,31 +16,12 @@ class MainViewController: UIViewController {
     let passwordTextField = UITextField()
     let enterButton = UIButton()
     
-    func addLefImageTo(textField: UITextField, image: UIImage) {
-        
-        let leftImageView = UIImageView()
-        
-        leftImageView.image = image
-        
-        textField.leftView = leftImageView
-        textField.leftViewMode = .always
-    }
-    
-    func addImageInView() {
-        
-        
-        
-        
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewsConfigure()
         setScrollViewConstrains()
         elementsConfigure()
-        setScrollViewConstrains()
         setViewElementsConstraints()
-        
     }
 }

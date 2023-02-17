@@ -11,49 +11,70 @@ extension MainViewController {
     
     func viewsConfigure() {
         
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "viewBackground")!)
+        view.backgroundColor = UIColor(
+            patternImage: UIImage(named: "viewBackground")!
+        )
         
         imageVeiw.image = UIImage(named: "headerBackground")
         imageVeiw.contentMode = .topRight
-        
         imageVeiw.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.viewConfigure(addSubview: view,
+                                      cornerRadius: nil,
+                                      visible: true,
+                                      backGroundColor: nil
+        )
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = UIColor(patternImage: UIImage(named: "scrollViewBackground")!)
+        contentView.viewConfigure(addSubview: scrollView,
+                                       cornerRadius: 10,
+                                       visible: true,
+                                       backGroundColor: UIColor(
+                                        patternImage: UIImage(named: "scrollViewBackground")!)
+        )
     }
     
     func elementsConfigure() {
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
+
         loginTextField.borderStyle = .roundedRect
-        loginTextField.font = .italicSystemFont(ofSize: 15)
-        loginTextField.placeholder = "Enter login"
-        loginTextField.backgroundColor = UIColor(patternImage: UIImage(named: "textFieldBackground")!)
-        loginTextField.textColor = .darkText
-        addLefImageTo(textField: loginTextField, image: UIImage(named: "loginBackground")!)
         
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        loginTextField.textFieldConfigure(
+            ImageViewNamed: "loginBackground",
+            textPlaceholder: "Enter login",
+            textColor: .darkText,
+            font: .italicSystemFont(ofSize: 15),
+            addSubview: contentView,
+            cornerRadius: nil,
+            visible: true,
+            backGroundColor: UIColor(patternImage:
+                                        UIImage(named: "textFieldBackground")!
+                                    )
+        )
+        
         passwordTextField.borderStyle = .roundedRect
-        passwordTextField.font = .italicSystemFont(ofSize: 15)
-        passwordTextField.placeholder = "Enter password"
-        passwordTextField.backgroundColor = UIColor(patternImage: UIImage(named: "textFieldBackground")!)
-        passwordTextField.textColor = .darkText
-        addLefImageTo(textField: passwordTextField, image: UIImage(named: "passwordBackground")!)
         
-        enterButton.translatesAutoresizingMaskIntoConstraints = false
-        enterButton.layer.cornerRadius = 5
-        enterButton.setTitle("Log in", for: .normal)
-        enterButton.tintColor = .darkText
-        enterButton.backgroundColor = UIColor(patternImage: UIImage(named: "buttonBackground")!)
+        passwordTextField.textFieldConfigure(
+            ImageViewNamed: "passwordBackground",
+            textPlaceholder: "Enter password",
+            textColor: .darkText,
+            font: .italicSystemFont(ofSize: 15),
+            addSubview: contentView,
+            cornerRadius: nil,
+            visible: true,
+            backGroundColor: UIColor(patternImage:
+                                        UIImage(named: "textFieldBackground")!
+                                    )
+        )
         
+        enterButton.buttonConfigure(addSubview: contentView,
+                                         title: "Log in",
+                                         cornerRadius: 5,
+                                         visible: true,
+                                         backGroundColor: UIColor(
+                                            patternImage: UIImage(named: "buttonBackground")!),
+                                         tintColor: .darkText)
     }
     
     func setScrollViewConstrains() {
-                
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.layer.cornerRadius = 10
         
         scrollView.centerXAnchor
             .constraint(
@@ -116,7 +137,6 @@ extension MainViewController {
                 equalTo: scrollView.bottomAnchor
             ).isActive = true
         
-        contentView.addSubview(loginTextField)
         loginTextField.leftAnchor
             .constraint(
                 equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
@@ -134,7 +154,8 @@ extension MainViewController {
         loginTextField.heightAnchor
             .constraint(equalToConstant: 60).isActive = true
         
-        contentView.addSubview(passwordTextField)
+        
+        
         passwordTextField.leadingAnchor
             .constraint(
                 equalTo: loginTextField.leadingAnchor
@@ -151,7 +172,8 @@ extension MainViewController {
         passwordTextField.heightAnchor
             .constraint(equalToConstant: 60).isActive = true
         
-        contentView.addSubview(enterButton)
+        //contentView.addSubview(enterButton)
+        
         NSLayoutConstraint.activate([
             enterButton.leadingAnchor
                 .constraint(
