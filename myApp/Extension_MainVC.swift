@@ -9,6 +9,10 @@ import UIKit
 
 extension MainViewController {
     
+    @objc func hideKeyboardAfterTounchScreen() {
+        view.endEditing(true)
+    }
+    
     func viewsConfigure() {
         
         view.backgroundColor = UIColor(
@@ -18,6 +22,9 @@ extension MainViewController {
         imageVeiw.image = UIImage(named: "headerBackground")
         imageVeiw.contentMode = .topRight
         imageVeiw.translatesAutoresizingMaskIntoConstraints = false
+        
+        tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTounchScreen))
+        view.addGestureRecognizer(tapGesture)
         
         scrollView.viewConfigure(addSubview: view,
                                       cornerRadius: nil,
