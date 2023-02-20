@@ -9,8 +9,24 @@ import UIKit
 
 extension MainViewController {
     
+    // прячем клавиатуру при нажатии на область Scroll View
     @objc func hideKeyboardAfterTounchScreen() {
         view.endEditing(true)
+    }
+    
+    // когда клавиатура появляетя
+    @objc func keyboardWasShown(notification: Notification) {
+        
+        guard UIDevice.current.orientation.isLandscape else { return }
+        scrollView.setContentOffset(CGPoint(x: 0, y: scrollView.bounds.height / 3.3), animated: true)
+    }
+    
+    // когда клавиатура исчезает
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        guard UIDevice.current.orientation.isLandscape else { return }
+        let controlInsets = UIEdgeInsets.zero
+        scrollView.contentInset = controlInsets
+        scrollView.setContentOffset(CGPoint(x: 0, y: -1), animated: true)
     }
     
     func viewsConfigure() {
@@ -58,6 +74,7 @@ extension MainViewController {
         )
         
         passwordTextField.borderStyle = .roundedRect
+        passwordTextField.isSecureTextEntry = true
         
         passwordTextField.textFieldConfigure(
             ImageViewNamed: "passwordBackground",
