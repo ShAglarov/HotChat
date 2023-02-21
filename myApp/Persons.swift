@@ -8,21 +8,19 @@ import UIKit
 
 class Person {
     var fistName: String
-    var age: Int
     var surName: String
     var dateOfBirdh: String
-    var email: String
-    var phoneNumber: String
+    var age: Int
+    var phoneNumberOrEmail: String
     var login: String
     var password: String
     
     init(
         fistName: String,
-        age: Int,
         surName: String,
         dateOfBirdh: String,
-        email: String,
-        phoneNumber: String,
+        age: Int,
+        phoneNumberOrEmail: String,
         login: String,
         password: String)
     {
@@ -30,9 +28,9 @@ class Person {
         self.age = age
         self.surName = surName
         self.dateOfBirdh = dateOfBirdh
-        self.email = email
-        self.phoneNumber = phoneNumber
+        self.phoneNumberOrEmail = phoneNumberOrEmail
         self.login = login
         self.password = password
     }
+    
 }

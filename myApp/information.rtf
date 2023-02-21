@@ -1,4 +1,4 @@
-{\rtf1\ansi\ansicpg1251\cocoartf2707
+{\rtf1\ansi\ansicpg1251\cocoartf2708
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;\f2\fnil\fcharset0 HelveticaNeue;
 \f3\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;}
 {\colortbl;\red255\green255\blue255;\red108\green121\blue134;\red18\green18\blue20;\red255\green255\blue255;
@@ -11,7 +11,7 @@
 \csgenericrgb\c81498\c74939\c41233;\cssrgb\c13725\c14902\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c18431\c20000\c21569;\cssrgb\c96471\c96471\c96471;
 \cssrgb\c392\c32941\c57647;\cssrgb\c71765\c32549\c392;\cssrgb\c40000\c43529\c47059;\cssrgb\c20000\c20000\c20000;\cssrgb\c94902\c94902\c94902;
 \cssrgb\c66667\c5098\c56863;\cssrgb\c10980\c0\c81176;\cssrgb\c36078\c14902\c60000;}
-\paperw12240\paperh15840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \deftab840
 \pard\tx840\pardeftab840\pardirnatural\partightenfactor0
 
@@ -24,19 +24,19 @@
 \
 //\uc0\u1087 \u1088 \u1086 \u1074 \u1077 \u1088 \u1082 \u1072  \u1087 \u1086 \u1074 \u1086 \u1088 \u1086 \u1090 \u1072  \u1101 \u1082 \u1088 \u1072 \u1085 \u1072  \u1077 \u1089 \u1083 \u1080  \u1086 \u1085 \u1072  \u1084 \u1077 \u1085 \u1103 \u1077 \u1090 \u1089 \u1103  \u1085 \u1072  \u1075 \u1086 \u1088 \u1080 \u1079 \u1086 \u1085 \u1072 \u1083 \u1100 \u1085 \u1091 \u1102  \u1090 \u1086  \u1089 \u1076 \u1074 \u1080 \u1075 \u1072 \u1077 \u1084  scrollView \u1085 \u1077 \u1084 \u1085 \u1086 \u1075 \u1086  \u1074 \u1074 \u1077 \u1088 \u1093 \cf4 \
         
-\f1\b \cf5 \cb3 guard
-\f0\b0 \cf4 \cb3  
-\f1\b \cf5 \cb3 self
-\f0\b0 \cf4 \cb3 .\cf6 \cb3 preferredInterfaceOrientationForPresentation\cf4 \cb3 .\cf6 \cb3 isLandscape\cf4 \cb3  == 
-\f1\b \cf5 \cb3 true
-\f0\b0 \cf4 \cb3  
-\f1\b \cf5 \cb3 else
-\f0\b0 \cf4 \cb3  \{ 
-\f1\b \cf5 \cb3 return
-\f0\b0 \cf4 \cb3  \}\
-        \cf7 \cb3 scrollView\cf4 \cb3 .\cf8 \cb3 setContentOffset\cf4 \cb3 (\cf9 \cb3 CGPoint\cf4 \cb3 (\cf8 \cb3 x\cf4 \cb3 : \cf10 \cb3 0\cf4 \cb3 , \cf8 \cb3 y\cf4 \cb3 : \cf6 \cb3 view\cf4 \cb3 .\cf6 \cb3 bounds\cf4 \cb3 .\cf6 \cb3 height\cf4 \cb3  / \cf10 \cb3 4\cf4 \cb3 ), \cf8 \cb3 animated\cf4 \cb3 : 
-\f1\b \cf5 \cb3 true
-\f0\b0 \cf4 \cb3 )\
+\f1\b \cf5 guard
+\f0\b0 \cf4  
+\f1\b \cf5 self
+\f0\b0 \cf4 .\cf6 preferredInterfaceOrientationForPresentation\cf4 .\cf6 isLandscape\cf4  == 
+\f1\b \cf5 true
+\f0\b0 \cf4  
+\f1\b \cf5 else
+\f0\b0 \cf4  \{ 
+\f1\b \cf5 return
+\f0\b0 \cf4  \}\
+        \cf7 scrollView\cf4 .\cf8 setContentOffset\cf4 (\cf9 CGPoint\cf4 (\cf8 x\cf4 : \cf10 0\cf4 , \cf8 y\cf4 : \cf6 view\cf4 .\cf6 bounds\cf4 .\cf6 height\cf4  / \cf10 4\cf4 ), \cf8 animated\cf4 : 
+\f1\b \cf5 true
+\f0\b0 \cf4 )\
 \
 \pard\pardeftab720\sa330\partightenfactor0
 
@@ -69,4 +69,6 @@ How to check the orientation of device at any point off time programmatically in
 \
 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))\
 \
-\'a0 \'a0 \'a0 \'a0 \}\'a0}
+\'a0 \'a0 \'a0 \'a0 \}\'a0\
+\
+UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight}
