@@ -100,46 +100,46 @@ extension MainViewController {
     
     func setScrollViewConstrains() {
         
-        scrollView.centerXAnchor
-            .constraint(
-                equalTo: view.centerXAnchor
-            ).isActive = true
-        
-        scrollView.widthAnchor
-            .constraint(
-                equalTo: view.widthAnchor
-            ).isActive = true
-        
-        scrollView.topAnchor
-            .constraint(
-                equalTo: view.topAnchor
-            ).isActive = true
-        
-        scrollView.bottomAnchor
-            .constraint(
-                equalTo: view.bottomAnchor
-            ).isActive = true
-        
-        contentView.centerXAnchor
-            .constraint(
-                equalTo: scrollView.centerXAnchor
-            ).isActive = true
-                contentView.widthAnchor
-            .constraint(
-                equalTo: scrollView.widthAnchor
-            ).isActive = true
-                contentView.topAnchor
-            .constraint(
-                equalTo: scrollView.topAnchor,
-                constant: 130
-            ).isActive = true
-                contentView.bottomAnchor
-            .constraint(
-                equalTo: scrollView.bottomAnchor
-            ).isActive = true
-                contentView.heightAnchor
-            .constraint(equalToConstant: 523)
-            .isActive = true
+        NSLayoutConstraint.activate([
+            scrollView.centerXAnchor
+                .constraint(
+                    equalTo: view.centerXAnchor
+                ),
+            scrollView.widthAnchor
+                .constraint(
+                    equalTo: view.widthAnchor
+                ),
+            scrollView.topAnchor
+                .constraint(
+                    equalTo: view.topAnchor
+                ),
+            scrollView.bottomAnchor
+                .constraint(
+                    equalTo: view.bottomAnchor
+                ),
+            
+            contentView.centerXAnchor
+                .constraint(
+                    equalTo: scrollView.centerXAnchor
+                ),
+            contentView.widthAnchor
+                .constraint(
+                    equalTo: scrollView.widthAnchor
+                ),
+            contentView.topAnchor
+                .constraint(
+                    equalTo: scrollView.topAnchor,
+                    constant: 130
+                ),
+            contentView.bottomAnchor
+                .constraint(
+                    equalTo: scrollView.bottomAnchor
+                ),
+            contentView.heightAnchor
+                .constraint(
+                    equalToConstant: 523
+                )
+        ])
     }
     
     func setViewElementsConstraints() {
@@ -147,58 +147,55 @@ extension MainViewController {
         let const: CGFloat = 20
         
         scrollView.insertSubview(imageVeiw, at: 0)
-        imageVeiw.centerXAnchor
-            .constraint(
-                equalTo: scrollView.safeAreaLayoutGuide.centerXAnchor
-            ).isActive = true
-        imageVeiw.topAnchor
-            .constraint(
-                equalTo: scrollView.topAnchor,
-                constant: -const
-            ).isActive = true
-        imageVeiw.bottomAnchor
-            .constraint(
-                equalTo: scrollView.bottomAnchor
-            ).isActive = true
-        
-        loginTextField.leftAnchor
-            .constraint(
-                equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
-                constant: const
-            ).isActive = true
-        loginTextField.topAnchor
-            .constraint(
-                equalTo: contentView.topAnchor,
-                constant: 25
-            ).isActive = true
-        loginTextField.rightAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
-                        constant: -const
-            ).isActive = true
-        loginTextField.heightAnchor
-            .constraint(equalToConstant: 60).isActive = true
-        
-        
-        
-        passwordTextField.leadingAnchor
-            .constraint(
-                equalTo: loginTextField.leadingAnchor
-            ).isActive = true
-        passwordTextField.topAnchor
-            .constraint(
-                equalTo: loginTextField.bottomAnchor,
-                constant: 13
-            ).isActive = true
-        passwordTextField.trailingAnchor
-            .constraint(
-                equalTo: loginTextField.trailingAnchor
-            ).isActive = true
-        passwordTextField.heightAnchor
-            .constraint(equalToConstant: 60).isActive = true
-        
-        //contentView.addSubview(enterButton)
         
         NSLayoutConstraint.activate([
+            imageVeiw.centerXAnchor
+                .constraint(
+                    equalTo: scrollView.safeAreaLayoutGuide.centerXAnchor
+                ),
+            imageVeiw.topAnchor
+                .constraint(
+                    equalTo: scrollView.topAnchor,
+                    constant: -const
+                ),
+            imageVeiw.bottomAnchor
+                .constraint(
+                    equalTo: scrollView.bottomAnchor
+                ),
+            
+            loginTextField.leftAnchor
+                .constraint(
+                    equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
+                    constant: const
+                ),
+            loginTextField.topAnchor
+                .constraint(
+                    equalTo: contentView.topAnchor,
+                    constant: 25
+                ),
+            loginTextField.rightAnchor
+                .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
+                            constant: -const
+                ),
+            loginTextField.heightAnchor
+                .constraint(
+                    equalToConstant: 60
+                ),
+            passwordTextField.leadingAnchor
+                .constraint(
+                    equalTo: loginTextField.leadingAnchor
+                ),
+            passwordTextField.topAnchor
+                .constraint(
+                    equalTo: loginTextField.bottomAnchor,
+                    constant: 13
+                ),
+            passwordTextField.trailingAnchor
+                .constraint(
+                    equalTo: loginTextField.trailingAnchor
+                ),
+            passwordTextField.heightAnchor
+                .constraint(equalToConstant: 60),
             enterButton.leadingAnchor
                 .constraint(
                     equalTo: passwordTextField.leadingAnchor

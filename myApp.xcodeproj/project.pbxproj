@@ -11,6 +11,7 @@
 		4BAAB8BC29A00A7300383743 /* Extension_UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */; };
 		4BAAB8BE29A01A2200383743 /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */; };
 		4BAAB8C129A027E300383743 /* Extension_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8C029A027E300383743 /* Extension_UIButton.swift */; };
+		4BB2B8D429A3C95200A40B9D /* PersonsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */; };
 		4BB71963299E5DDA00EDADA7 /* Extension_MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */; };
 		4BE110F4299ADE3A002D1541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F3299ADE3A002D1541 /* AppDelegate.swift */; };
 		4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 		4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UITextField.swift; sourceTree = "<group>"; };
 		4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
 		4BAAB8C029A027E300383743 /* Extension_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIButton.swift; sourceTree = "<group>"; };
+		4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsAccountViewController.swift; sourceTree = "<group>"; };
 		4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_MainVC.swift; sourceTree = "<group>"; };
 		4BE110F0299ADE39002D1541 /* myApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE110F3299ADE3A002D1541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4BAAB8BF29A01A2B00383743 /* Extension_System */ = {
+		4B25347129A444FD00B84806 /* Extension_System */ = {
 			isa = PBXGroup;
 			children = (
 				4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */,
@@ -53,6 +55,32 @@
 				4BAAB8C029A027E300383743 /* Extension_UIButton.swift */,
 			);
 			path = Extension_System;
+			sourceTree = "<group>";
+		};
+		4B25347229A4451D00B84806 /* Extension_ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */,
+			);
+			name = Extension_ViewControllers;
+			sourceTree = "<group>";
+		};
+		4B25347329A4454B00B84806 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BE110F7299ADE3A002D1541 /* MainViewController.swift */,
+				4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4BAAB8BF29A01A2B00383743 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4B25347229A4451D00B84806 /* Extension_ViewControllers */,
+				4B25347129A444FD00B84806 /* Extension_System */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		4BE110E7299ADE39002D1541 = {
@@ -76,9 +104,8 @@
 			children = (
 				4BE110F3299ADE3A002D1541 /* AppDelegate.swift */,
 				4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */,
-				4BE110F7299ADE3A002D1541 /* MainViewController.swift */,
-				4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */,
-				4BAAB8BF29A01A2B00383743 /* Extension_System */,
+				4B25347329A4454B00B84806 /* ViewControllers */,
+				4BAAB8BF29A01A2B00383743 /* Extension */,
 				4BE110FC299ADE3C002D1541 /* Assets.xcassets */,
 				4BE110FE299ADE3C002D1541 /* LaunchScreen.storyboard */,
 				4B9825A929A1F60900201702 /* information.rtf */,
@@ -165,6 +192,7 @@
 				4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */,
 				4BB71963299E5DDA00EDADA7 /* Extension_MainVC.swift in Sources */,
 				4BAAB8C129A027E300383743 /* Extension_UIButton.swift in Sources */,
+				4BB2B8D429A3C95200A40B9D /* PersonsAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
