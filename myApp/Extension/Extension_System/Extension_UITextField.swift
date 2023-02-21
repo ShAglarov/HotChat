@@ -10,7 +10,7 @@ import UIKit
 extension UITextField {
     
     func textFieldConfigure(
-                                ImageViewNamed: String?,
+                                leftImageViewNamed: String?,
                                 textPlaceholder: String?,
                                 textColor: UIColor?,
                                 font: UIFont?,
@@ -22,8 +22,9 @@ extension UITextField {
     {
         guard let subView = addSubview else { return }
         
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: ImageViewNamed!)
+        let imageView: UIImageView? = UIImageView()
+        
+        imageView?.image = UIImage(named: leftImageViewNamed ?? "defaultImage")
         
         leftView = imageView
         leftViewMode = .always

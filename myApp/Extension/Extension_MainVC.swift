@@ -61,7 +61,7 @@ extension MainViewController {
         loginTextField.borderStyle = .roundedRect
         
         loginTextField.textFieldConfigure(
-            ImageViewNamed: "loginBackground",
+            leftImageViewNamed: "loginBackground",
             textPlaceholder: "Enter login",
             textColor: .darkText,
             font: .italicSystemFont(ofSize: 15),
@@ -77,7 +77,7 @@ extension MainViewController {
         passwordTextField.isSecureTextEntry = true
         
         passwordTextField.textFieldConfigure(
-            ImageViewNamed: "passwordBackground",
+            leftImageViewNamed: "passwordBackground",
             textPlaceholder: "Enter password",
             textColor: .darkText,
             font: .italicSystemFont(ofSize: 15),
