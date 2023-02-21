@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B8E276829A4F8FA00A9F420 /* Persons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276729A4F8FA00A9F420 /* Persons.swift */; };
 		4B9825AA29A1F60900201702 /* information.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4B9825A929A1F60900201702 /* information.rtf */; };
 		4BAAB8BC29A00A7300383743 /* Extension_UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */; };
 		4BAAB8BE29A01A2200383743 /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B8E276729A4F8FA00A9F420 /* Persons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persons.swift; sourceTree = "<group>"; };
 		4B9825A929A1F60900201702 /* information.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = information.rtf; sourceTree = "<group>"; };
 		4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UITextField.swift; sourceTree = "<group>"; };
 		4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				4BE110F3299ADE3A002D1541 /* AppDelegate.swift */,
 				4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */,
+				4B8E276729A4F8FA00A9F420 /* Persons.swift */,
 				4B25347329A4454B00B84806 /* ViewControllers */,
 				4BAAB8BF29A01A2B00383743 /* Extension */,
 				4BE110FC299ADE3C002D1541 /* Assets.xcassets */,
@@ -191,6 +194,7 @@
 				4BE110F4299ADE3A002D1541 /* AppDelegate.swift in Sources */,
 				4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */,
 				4BB71963299E5DDA00EDADA7 /* Extension_MainVC.swift in Sources */,
+				4B8E276829A4F8FA00A9F420 /* Persons.swift in Sources */,
 				4BAAB8C129A027E300383743 /* Extension_UIButton.swift in Sources */,
 				4BB2B8D429A3C95200A40B9D /* PersonsAccountViewController.swift in Sources */,
 			);
