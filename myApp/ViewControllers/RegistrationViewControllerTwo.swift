@@ -40,10 +40,6 @@ class RegistrationViewControllerTwo: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override open var shouldAutorotate: Bool {
-        return false
-    }
-    
     func scrollUp() {
         
         //проверка поворота экрана если она горизонтальная то сдвигаем scrollView немного вверх

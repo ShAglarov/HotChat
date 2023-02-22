@@ -29,6 +29,16 @@ extension RegistrationViewControllerOne {
         scrollView.setContentOffset(CGPoint(x: 0, y: -1), animated: true)
     }
     
+    /// во время редактирования текста запрещаем  буквы с верхним регистром
+    @objc func editingTextFieldLowerased(text: UITextField) {
+        text.lowercasedText()
+    }
+    
+    /// во время редактирования текста запрещаем  ставить пробелы
+    @objc func editingTextFieldTrimming(text: UITextField) {
+        text.trimmingWiteSpacesText()
+    }
+    
     func formatter(date: Date) -> String {
         let formatter = DateFormatter()
 
@@ -97,6 +107,9 @@ extension RegistrationViewControllerOne {
         firstNameTextField.borderStyle = .roundedRect
         surNameTextField.borderStyle = .roundedRect
         dateOfBirdhTextField.borderStyle = .roundedRect
+        
+        firstNameTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        surNameTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
         
         firstNameTextField.textFieldConfigure(
             leftImageViewNamed: nil,

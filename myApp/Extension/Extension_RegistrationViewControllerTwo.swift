@@ -28,10 +28,14 @@ extension RegistrationViewControllerTwo {
         scrollView.contentInset = controlInsets
         scrollView.setContentOffset(CGPoint(x: 0, y: -1), animated: true)
     }
-    // во время редактирования текста запрещаем ставить пробелы и буквы с верхним регистром
-    @objc func editingTextField(text: UITextField) {
-        phoneNumberOrEmailTextField.lowercasedText()
-        phoneNumberOrEmailTextField.trimmingWiteSpacesText()
+    /// во время редактирования текста запрещаем  буквы с верхним регистром
+    @objc func editingTextFieldLowerased(text: UITextField) {
+        text.lowercasedText()
+    }
+    
+    /// во время редактирования текста запрещаем  ставить пробелы
+    @objc func editingTextFieldTrimming(text: UITextField) {
+        text.trimmingWiteSpacesText()
     }
     
     func viewsConfigure() {
@@ -64,10 +68,14 @@ extension RegistrationViewControllerTwo {
     func elementsConfigure() {
         
         phoneNumberOrEmailTextField.borderStyle = .roundedRect
-        phoneNumberOrEmailTextField.addTarget(self, action: #selector(editingTextField(text: )), for: .editingChanged)
         loginTextField.borderStyle = .roundedRect
         passwordTextField.borderStyle = .roundedRect
-
+        
+        phoneNumberOrEmailTextField.addTarget(self, action: #selector(editingTextFieldLowerased(text: )), for: .editingChanged)
+        phoneNumberOrEmailTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        loginTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        
         passwordTextField.isSecureTextEntry = true
         
         phoneNumberOrEmailTextField.textFieldConfigure(
@@ -111,7 +119,7 @@ extension RegistrationViewControllerTwo {
         
         
         enterButton.buttonConfigure(addSubview: contentView,
-                                         title: "Next",
+                                         title: "Create account",
                                          cornerRadius: 5,
                                          visible: true,
                                          backGroundColor: UIColor(
