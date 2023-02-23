@@ -55,8 +55,6 @@ class RegistrationViewControllerOne: UIViewController, UITextFieldDelegate {
         elementsConfigure()
         setViewElementsConstraints()
         
-        enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
-        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -69,7 +67,7 @@ class RegistrationViewControllerOne: UIViewController, UITextFieldDelegate {
         // второе, когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        print(age)
+        enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
     }
     
     func scrollUp() {

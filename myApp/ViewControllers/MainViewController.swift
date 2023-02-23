@@ -18,6 +18,19 @@ class MainViewController: UIViewController {
     let registrationButton = UIButton()
     let tapGesture = UITapGestureRecognizer()
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        navigationItem.title = "Aglarov"
+          
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +38,6 @@ class MainViewController: UIViewController {
         setScrollViewConstrains()
         elementsConfigure()
         setViewElementsConstraints()
-        
         
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
