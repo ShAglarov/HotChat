@@ -39,6 +39,13 @@ extension RegistrationViewControllerOne {
         text.trimmingWiteSpacesText()
     }
     
+    //запрет на редактирование текста в dateOfBirdhTextField
+    @objc private func dismissKeyboard() {
+        if dateOfBirdhTextField.text?.isString == false {
+            dateOfBirdhTextField.text = ""
+        }
+    }
+    
     func formatter(date: Date) -> String {
         let formatter = DateFormatter()
 
@@ -110,6 +117,7 @@ extension RegistrationViewControllerOne {
         
         firstNameTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
         surNameTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        dateOfBirdhTextField.addTarget(self, action: #selector(dismissKeyboard), for: .editingChanged)
         
         firstNameTextField.textFieldConfigure(
             leftImageViewNamed: nil,
