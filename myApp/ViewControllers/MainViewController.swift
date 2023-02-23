@@ -21,7 +21,9 @@ class MainViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        navigationItem.title = "Aglarov"
+        navigationItem.title = "CHAT"
+        navigationItem.backButtonTitle = "Menu"
+        navigationItem.backBarButtonItem?.tintColor = .red
           
     }
     

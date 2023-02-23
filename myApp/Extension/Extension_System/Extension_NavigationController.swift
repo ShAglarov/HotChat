@@ -12,7 +12,8 @@ extension UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13, *) {
-            self.navigationBar.standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            self.navigationBar.standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.systemYellow]
+            self.navigationBar.tintColor = .systemYellow
         }
         else {
             self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
