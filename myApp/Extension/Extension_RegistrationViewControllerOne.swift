@@ -42,7 +42,7 @@ extension RegistrationViewControllerOne {
     //запрет на редактирование текста в dateOfBirdhTextField
     @objc private func dismissKeyboard() {
         if dateOfBirdhTextField.text?.isString == false {
-            dateOfBirdhTextField.text = ""
+            dateOfBirdhTextField.text = String()
         }
     }
     
@@ -74,6 +74,7 @@ extension RegistrationViewControllerOne {
         imageVeiw.translatesAutoresizingMaskIntoConstraints = false
         
         tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTounchScreen))
+        
         view.addGestureRecognizer(tapGesture)
         
         scrollView.viewConfigure(addSubview: view,
@@ -88,6 +89,7 @@ extension RegistrationViewControllerOne {
                                        backGroundColor: UIColor(
                                         patternImage: UIImage(named: "scrollViewBackground")!)
         )
+        
     }
     
     func elementsConfigure() {
@@ -167,6 +169,34 @@ extension RegistrationViewControllerOne {
                                             patternImage: UIImage(named: "buttonBackground")!),
                                          tintColor: .darkText)
         
+    }
+    
+    func addPopUpError(visible: Bool) {
+        
+        popUpViewErrorView.viewConfigure(addSubview: scrollView,
+                                         cornerRadius: 10.0,
+                                         visible: visible,
+                                         backGroundColor: .systemYellow)
+        
+        NSLayoutConstraint.activate([
+            popUpViewErrorView.leftAnchor
+                .constraint(
+                    equalTo: contentView.leftAnchor,
+                    constant: 100
+                ),
+            popUpViewErrorView.rightAnchor
+                .constraint(
+                    equalTo: contentView.rightAnchor,
+                    constant: -100
+                ),
+            popUpViewErrorView.topAnchor
+                .constraint(
+                    equalTo: contentView.topAnchor,
+                    constant: 50
+                ),
+            popUpViewErrorView.heightAnchor
+                .constraint(equalToConstant: 100)
+        ])
     }
     
     func setScrollViewConstrains() {

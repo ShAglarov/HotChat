@@ -20,6 +20,7 @@
 		4BB71963299E5DDA00EDADA7 /* Extension_MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */; };
 		4BBBF3AC29A7B2FB00FF4304 /* Extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3AB29A7B2FB00FF4304 /* Extension_String.swift */; };
 		4BBBF3AE29A7D40B00FF4304 /* Extension_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3AD29A7D40B00FF4304 /* Extension_NavigationController.swift */; };
+		4BBBF3B429A8098F00FF4304 /* PopUpOnErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3B329A8098F00FF4304 /* PopUpOnErrorView.swift */; };
 		4BE110F4299ADE3A002D1541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F3299ADE3A002D1541 /* AppDelegate.swift */; };
 		4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */; };
 		4BE110F8299ADE3A002D1541 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F7299ADE3A002D1541 /* MainViewController.swift */; };
@@ -41,6 +42,7 @@
 		4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_MainVC.swift; sourceTree = "<group>"; };
 		4BBBF3AB29A7B2FB00FF4304 /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
 		4BBBF3AD29A7D40B00FF4304 /* Extension_NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_NavigationController.swift; sourceTree = "<group>"; };
+		4BBBF3B329A8098F00FF4304 /* PopUpOnErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpOnErrorView.swift; sourceTree = "<group>"; };
 		4BE110F0299ADE39002D1541 /* myApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE110F3299ADE3A002D1541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */,
 				4B8E277129A5554000A9F420 /* RegistrationViewControllerTwo.swift */,
 				4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */,
+				4BBBF3B329A8098F00FF4304 /* PopUpOnErrorView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				4B8E277029A5298A00A9F420 /* RegistrationViewControllerOne.swift in Sources */,
 				4BE110F4299ADE3A002D1541 /* AppDelegate.swift in Sources */,
 				4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */,
+				4BBBF3B429A8098F00FF4304 /* PopUpOnErrorView.swift in Sources */,
 				4B8E277229A5554000A9F420 /* RegistrationViewControllerTwo.swift in Sources */,
 				4BBBF3AE29A7D40B00FF4304 /* Extension_NavigationController.swift in Sources */,
 				4B8E276E29A528A800A9F420 /* Extension_RegistrationViewControllerOne.swift in Sources */,
