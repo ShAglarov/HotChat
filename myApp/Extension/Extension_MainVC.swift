@@ -96,6 +96,14 @@ extension MainViewController {
                                          backGroundColor: UIColor(
                                             patternImage: UIImage(named: "buttonBackground")!),
                                          tintColor: .darkText)
+        
+        registrationButton.buttonConfigure(addSubview: contentView,
+                                         title: "Register account",
+                                         cornerRadius: 20,
+                                         visible: true,
+                                         backGroundColor: UIColor(
+                                            patternImage: UIImage(named: "buttonBackground")!),
+                                         tintColor: .darkText)
     }
     
     func setScrollViewConstrains() {
@@ -210,7 +218,24 @@ extension MainViewController {
                     equalTo: passwordTextField.trailingAnchor
                 ),
             enterButton.heightAnchor
-                .constraint(equalToConstant: 50)
+                .constraint(equalToConstant: 50),
+            registrationButton.leadingAnchor
+                .constraint(
+                    equalTo: enterButton.leadingAnchor,
+                    constant: 50
+                ),
+            registrationButton.trailingAnchor
+                .constraint(
+                    equalTo: enterButton.trailingAnchor,
+                    constant: -50
+                ),
+            registrationButton.bottomAnchor
+                .constraint(
+                    equalTo: contentView.bottomAnchor,
+                    constant: -10
+                ),
+            registrationButton.heightAnchor
+                .constraint(equalToConstant: 35)
         ])
     }
 }

@@ -15,9 +15,16 @@ class RegistrationViewControllerTwo: UIViewController {
     let tapGesture = UITapGestureRecognizer()
     let enterButton = UIButton()
     
+    var firsName = String()
+    var surName = String()
+    var dateOfBirdh = String()
+    var age = String()
+    
     let phoneNumberOrEmailTextField = UITextField()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
+    
+    var didRegister: (Person) -> Void = { person in }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +45,8 @@ class RegistrationViewControllerTwo: UIViewController {
         
         // второе, когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        enterButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
     }
     
     func scrollUp() {
@@ -45,6 +54,27 @@ class RegistrationViewControllerTwo: UIViewController {
         //проверка поворота экрана если она горизонтальная то сдвигаем scrollView немного вверх
         guard self.preferredInterfaceOrientationForPresentation.isLandscape == true else { return }
         scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
+    }
+    
+    @objc func backToMainVC() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func createPerson() -> Person {
+        guard let phoneOrEmail = phoneNumberOrEmailTextField.text,
+              let login = loginTextField.text,
+              let password = passwordTextField.text else { return Person() }
+        
+        let person = Person(fistName: firsName,
+                            surName: surName,
+                            dateOfBirdh: dateOfBirdh,
+                            age: Int(age) ?? 0,
+                            phoneNumberOrEmail: phoneOrEmail,
+                            login: login,
+                            password: password
+        )
+        
+        return person
     }
 
 }

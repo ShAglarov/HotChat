@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     let enterButton = UIButton()
+    let registrationButton = UIButton()
     let tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
@@ -24,6 +25,8 @@ class MainViewController: UIViewController {
         setScrollViewConstrains()
         elementsConfigure()
         setViewElementsConstraints()
+        
+        
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -36,6 +39,12 @@ class MainViewController: UIViewController {
         
         // второе, когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        registrationButton.addTarget(self, action: #selector(registration), for: .touchUpInside)
+    }
+    
+    @objc func registration() {
+        navigationController?.pushViewController(RegistrationViewControllerOne(), animated: true)
     }
 
     func scrollUp() {

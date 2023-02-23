@@ -33,4 +33,15 @@ class Person {
         self.password = password
     }
     
+    init()
+    {
+        self.fistName = ""
+        self.age = 0
+        self.surName = ""
+        self.dateOfBirdh = ""
+        self.phoneNumberOrEmail = ""
+        self.login = ""
+        self.password = ""
+    }
+    
 }

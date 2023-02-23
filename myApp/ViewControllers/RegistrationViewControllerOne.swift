@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationViewControllerOne: UIViewController {
+class RegistrationViewControllerOne: UIViewController, UITextFieldDelegate {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -31,6 +31,22 @@ class RegistrationViewControllerOne: UIViewController {
         return label
     }()
     
+    @objc func presentToFinishedRegistrationVC() {
+        if let firstName = firstNameTextField.text,
+           let surName = surNameTextField.text,
+           let birdhDay = dateOfBirdhTextField.text
+        {
+            let regTwoVC = RegistrationViewControllerTwo()
+            
+            regTwoVC.firsName = firstName
+            regTwoVC.surName = surName
+            regTwoVC.dateOfBirdh = birdhDay
+            regTwoVC.age = self.age
+            
+            navigationController?.pushViewController(regTwoVC, animated: true)
+        } else { return }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +55,7 @@ class RegistrationViewControllerOne: UIViewController {
         elementsConfigure()
         setViewElementsConstraints()
         
-        
+        enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -54,10 +70,6 @@ class RegistrationViewControllerOne: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         print(age)
-    }
-    
-    override open var shouldAutorotate: Bool {
-        return false
     }
     
     func scrollUp() {
