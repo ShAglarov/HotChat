@@ -7,12 +7,12 @@
 
 import UIKit
 
-enum ErrorInputData: Error {
+enum ErrorInputData: LocalizedError {
     case errorEnterFirstName
     case errorEnterSurName
     case errorEnterDateOfBirdh
     
-    var desctiprion: String {
+    var errorDescription: String? {
         switch self {
         case .errorEnterFirstName:
             return "Для продолжения введите имя!"
@@ -23,7 +23,6 @@ enum ErrorInputData: Error {
         }
     }
 }
-
 class RegistrationViewControllerOne: UIViewController {
     
     let scrollView = UIScrollView()
@@ -78,24 +77,8 @@ class RegistrationViewControllerOne: UIViewController {
             navigationController?.pushViewController(regTwoVC, animated: true)
             
         } catch {
-            if let checkError = error as? ErrorInputData {
-                
-                switch checkError {
-                case .errorEnterFirstName:
-                    addPopUpError(translatesAutoresingMask: true,
-                                  errorText: "\(checkError.desctiprion)"
-                    )
-                   
-                case .errorEnterSurName:
-                    addPopUpError(translatesAutoresingMask: true,
-                                  errorText: "\(checkError.desctiprion)"
-                    )
-                case .errorEnterDateOfBirdh:
-                    addPopUpError(translatesAutoresingMask: true,
-                                  errorText: "\(checkError.desctiprion)"
-                    )
-                }
-            }
+            addPopUpError(translatesAutoresingMask: true,
+                          errorText: error.localizedDescription)
         }
     }
     
