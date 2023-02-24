@@ -160,7 +160,6 @@ extension RegistrationViewControllerOne {
                                     )
         )
         
-        
         enterButton.buttonConfigure(addSubview: contentView,
                                          title: "Next",
                                          cornerRadius: 5,
@@ -171,31 +170,34 @@ extension RegistrationViewControllerOne {
         
     }
     
-    func addPopUpError(visible: Bool) {
+    func addPopUpError(translatesAutoresingMask: Bool, errorText: String) {
         
-        popUpViewErrorView.viewConfigure(addSubview: scrollView,
-                                         cornerRadius: 10.0,
-                                         visible: visible,
-                                         backGroundColor: .systemYellow)
+        popUpErrorView.textError.text = errorText
+        popUpErrorView.translatesAutoresizingMaskIntoConstraints = false
+    
+        contentView.addSubview(popUpErrorView)
+        
+        let const: CGFloat = 20
         
         NSLayoutConstraint.activate([
-            popUpViewErrorView.leftAnchor
+            popUpErrorView.leftAnchor
                 .constraint(
-                    equalTo: contentView.leftAnchor,
-                    constant: 100
+                    equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
+                    constant: const
                 ),
-            popUpViewErrorView.rightAnchor
-                .constraint(
-                    equalTo: contentView.rightAnchor,
-                    constant: -100
-                ),
-            popUpViewErrorView.topAnchor
+            popUpErrorView.topAnchor
                 .constraint(
                     equalTo: contentView.topAnchor,
-                    constant: 50
+                    constant: 25
                 ),
-            popUpViewErrorView.heightAnchor
-                .constraint(equalToConstant: 100)
+            popUpErrorView.rightAnchor
+                .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
+                            constant: -const
+                ),
+            popUpErrorView.heightAnchor
+                .constraint(
+                    equalToConstant: 100
+                ),
         ])
     }
     

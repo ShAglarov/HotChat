@@ -11,13 +11,24 @@ enum ErrorInputData: Error {
     case errorEnterFirstName
     case errorEnterSurName
     case errorEnterDateOfBirdh
+    
+    var desctiprion: String {
+        switch self {
+        case .errorEnterFirstName:
+            return "Для продолжения введите имя!"
+        case .errorEnterSurName:
+            return "Для продолжения введите фамилию!"
+        case .errorEnterDateOfBirdh:
+            return "Для продолжения выберите дату рождения!"
+        }
+    }
 }
 
 class RegistrationViewControllerOne: UIViewController {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
-    let popUpViewErrorView = PopUpOnErrorView()
+    let popUpErrorView = PopUpOnErrorView()
     let imageVeiw = UIImageView()
     let tapGesture = UITapGestureRecognizer()
     let datePicker = UIDatePicker()
@@ -63,19 +74,26 @@ class RegistrationViewControllerOne: UIViewController {
             regTwoVC.surName = surName
             regTwoVC.dateOfBirdh = dateOfBirdh
             regTwoVC.age = self.age
+            
             navigationController?.pushViewController(regTwoVC, animated: true)
             
         } catch {
-            
             if let checkError = error as? ErrorInputData {
                 
                 switch checkError {
                 case .errorEnterFirstName:
-                    print(error)
+                    addPopUpError(translatesAutoresingMask: true,
+                                  errorText: "\(checkError.desctiprion)"
+                    )
+                   
                 case .errorEnterSurName:
-                    print(error)
+                    addPopUpError(translatesAutoresingMask: true,
+                                  errorText: "\(checkError.desctiprion)"
+                    )
                 case .errorEnterDateOfBirdh:
-                    print(error)
+                    addPopUpError(translatesAutoresingMask: true,
+                                  errorText: "\(checkError.desctiprion)"
+                    )
                 }
             }
         }
@@ -101,10 +119,8 @@ class RegistrationViewControllerOne: UIViewController {
         // второе, когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        //enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
+        enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
         
-          enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
-
     }
     
     func scrollUp() {
