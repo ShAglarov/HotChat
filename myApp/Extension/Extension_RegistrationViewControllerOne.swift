@@ -10,8 +10,20 @@ import UIKit
 extension RegistrationViewControllerOne {
     
     // прячем клавиатуру при нажатии на область Scroll View
-    @objc func hideKeyboardAfterTounchScreen() {
+    @objc func hideKeyboardAfterTouchScreen() {
         view.endEditing(true)
+    }
+    
+    @objc func showTextFieldAfterTouchScreen() {
+        textFieldDidBeginEditing(firstNameTextField, status: false)
+    }
+    
+    @objc func hidePopUpErrorViewAfterTouchScreen() {
+        textViewDidBeginEditing(popUpErrorView, status: true)
+    }
+    
+    @objc func showPopUpErrorViewAfterTouchScreen() {
+        textViewDidBeginEditing(popUpErrorView, status: false)
     }
     
     // когда клавиатура появляетя
@@ -73,8 +85,10 @@ extension RegistrationViewControllerOne {
         imageVeiw.contentMode = .topRight
         imageVeiw.translatesAutoresizingMaskIntoConstraints = false
         
-        tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTounchScreen))
-        
+        tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTouchScreen))
+        tapGesture.addTarget(self, action: #selector(showTextFieldAfterTouchScreen))
+        tapGesture.addTarget(self, action: #selector(hidePopUpErrorViewAfterTouchScreen))
+                             
         view.addGestureRecognizer(tapGesture)
         
         scrollView.viewConfigure(addSubview: view,
@@ -160,7 +174,7 @@ extension RegistrationViewControllerOne {
                                     )
         )
         
-        enterButton.buttonConfigure(addSubview: contentView,
+        enterNextButton.buttonConfigure(addSubview: contentView,
                                          title: "Next",
                                          cornerRadius: 5,
                                          visible: true,
@@ -170,7 +184,7 @@ extension RegistrationViewControllerOne {
         
     }
     
-    func addPopUpError(translatesAutoresingMask: Bool, errorText: String) {
+    func addPopUpError(errorText: String) {
         
         popUpErrorView.textError.text = errorText
         popUpErrorView.translatesAutoresizingMaskIntoConstraints = false
@@ -328,21 +342,21 @@ extension RegistrationViewControllerOne {
                     equalTo: dateOfBirdhTextField.centerXAnchor
                 ),
 
-            enterButton.leadingAnchor
+            enterNextButton.leadingAnchor
                 .constraint(
                     equalTo: dateOfBirdhTextField.leadingAnchor
                 ),
             // Enter
-            enterButton.topAnchor
+            enterNextButton.topAnchor
                 .constraint(
                     equalTo: dateOfBirdhTextField.bottomAnchor,
                     constant: 13
                 ),
-            enterButton.trailingAnchor
+            enterNextButton.trailingAnchor
                 .constraint(
                     equalTo: dateOfBirdhTextField.trailingAnchor
                 ),
-            enterButton.heightAnchor
+            enterNextButton.heightAnchor
                 .constraint(equalToConstant: 50)
 
         ])

@@ -10,7 +10,7 @@ import UIKit
 extension MainViewController {
     
     // прячем клавиатуру при нажатии на область Scroll View
-    @objc func hideKeyboardAfterTounchScreen() {
+    @objc func hideKeyboardAfterTouchScreen() {
         view.endEditing(true)
     }
     
@@ -39,7 +39,7 @@ extension MainViewController {
         imageVeiw.contentMode = .topRight
         imageVeiw.translatesAutoresizingMaskIntoConstraints = false
         
-        tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTounchScreen))
+        tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTouchScreen))
         view.addGestureRecognizer(tapGesture)
         
         scrollView.viewConfigure(addSubview: view,

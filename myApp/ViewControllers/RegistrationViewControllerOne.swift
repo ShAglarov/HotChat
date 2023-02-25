@@ -36,7 +36,7 @@ class RegistrationViewControllerOne: UIViewController {
     let firstNameTextField = UITextField()
     let surNameTextField = UITextField()
     let dateOfBirdhTextField = UITextField()
-    let enterButton = UIButton()
+    let enterNextButton = UIButton()
 
     let placeholderAgeLabel: UILabel = {
         let label = UILabel()
@@ -77,13 +77,17 @@ class RegistrationViewControllerOne: UIViewController {
             navigationController?.pushViewController(regTwoVC, animated: true)
             
         } catch {
-            addPopUpError(translatesAutoresingMask: true,
-                          errorText: error.localizedDescription)
+            textFieldDidBeginEditing(firstNameTextField, status: true)
+            textViewDidBeginEditing(PopUpOnErrorView(), status: false)
+            addPopUpError(errorText: error.localizedDescription)
+            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameTextField.delegate = self
         
         viewsConfigure()
         setScrollViewConstrains()
@@ -102,7 +106,7 @@ class RegistrationViewControllerOne: UIViewController {
         // второе, когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
+        enterNextButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
         
     }
     
