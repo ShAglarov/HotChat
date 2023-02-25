@@ -24,13 +24,10 @@ class MainViewController: UIViewController {
         navigationItem.title = "CHAT"
         navigationItem.backButtonTitle = "Menu"
         navigationItem.backBarButtonItem?.tintColor = .red
-          
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        
     }
     
     override func viewDidLoad() {

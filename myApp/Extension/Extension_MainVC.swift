@@ -221,6 +221,7 @@ extension MainViewController {
                 ),
             enterButton.heightAnchor
                 .constraint(equalToConstant: 50),
+            
             registrationButton.leadingAnchor
                 .constraint(
                     equalTo: enterButton.leadingAnchor,
@@ -233,8 +234,8 @@ extension MainViewController {
                 ),
             registrationButton.bottomAnchor
                 .constraint(
-                    equalTo: contentView.bottomAnchor,
-                    constant: -10
+                    equalTo: view.bottomAnchor,
+                    constant: -15
                 ),
             registrationButton.heightAnchor
                 .constraint(equalToConstant: 35)
