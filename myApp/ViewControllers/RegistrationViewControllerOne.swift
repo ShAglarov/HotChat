@@ -82,7 +82,7 @@ class RegistrationViewControllerOne: UIViewController {
                                      dateOfBirdhTextField,
                                      enterNextButton,
                                      placeholderAgeLabel,
-                                     true)
+                                     hide: true)
             
             textViewDidBeginEditing(PopUpOnErrorView(), status: false)
             setPopUpErrorViewConstrains(errorText: error.localizedDescription)

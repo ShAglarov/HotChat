@@ -56,8 +56,6 @@ class PopUpOnErrorView: UIView {
     
     @objc func closeView() {
         
-        let regVC = RegistrationViewControllerOne()
-        
         self.isHidden = true
     }
     

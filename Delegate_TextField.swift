@@ -9,12 +9,13 @@ import UIKit
 
 extension RegistrationViewControllerOne: UITextFieldDelegate {
     
+    ///  Функция делает видимыми либо невидимыми добавленные элементы
     func textFieldDidBeginEditing(_ firstName: UITextField?,
                                   _ surName: UITextField?,
                                   _ dateOfBirdh: UITextField?,
                                   _ enterButton: UIButton?,
                                   _ placeholderAge: UILabel?,
-                                  _ status: Bool?) {
+                                  hide status: Bool?) {
         firstName?.isHidden = status ?? false
         surName?.isHidden = status ?? false
         dateOfBirdh?.isHidden = status ?? false

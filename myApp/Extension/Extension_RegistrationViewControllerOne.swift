@@ -20,7 +20,7 @@ extension RegistrationViewControllerOne {
                                  dateOfBirdhTextField,
                                  enterNextButton,
                                  placeholderAgeLabel,
-                                 false)
+                                 hide: false)
     }
     
     @objc func hidePopUpErrorViewAfterTouchScreen() {
