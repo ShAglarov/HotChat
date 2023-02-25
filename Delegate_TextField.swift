@@ -9,11 +9,16 @@ import UIKit
 
 extension RegistrationViewControllerOne: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField, status: Bool) {
-        self.surNameTextField.isHidden = status
-        self.firstNameTextField.isHidden = status
-        self.dateOfBirdhTextField.isHidden = status
-        self.enterNextButton.isHidden = status
-        self.placeholderAgeLabel.isHidden = status
+    func textFieldDidBeginEditing(_ firstName: UITextField?,
+                                  _ surName: UITextField?,
+                                  _ dateOfBirdh: UITextField?,
+                                  _ enterButton: UIButton?,
+                                  _ placeholderAge: UILabel?,
+                                  _ status: Bool?) {
+        firstName?.isHidden = status ?? false
+        surName?.isHidden = status ?? false
+        dateOfBirdh?.isHidden = status ?? false
+        enterButton?.isHidden = status ?? false
+        placeholderAge?.isHidden = status ?? false
     }
 }

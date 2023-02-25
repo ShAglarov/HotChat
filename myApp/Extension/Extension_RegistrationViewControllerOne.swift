@@ -15,7 +15,12 @@ extension RegistrationViewControllerOne {
     }
     
     @objc func showTextFieldAfterTouchScreen() {
-        textFieldDidBeginEditing(firstNameTextField, status: false)
+        textFieldDidBeginEditing(firstNameTextField,
+                                 surNameTextField,
+                                 dateOfBirdhTextField,
+                                 enterNextButton,
+                                 placeholderAgeLabel,
+                                 false)
     }
     
     @objc func hidePopUpErrorViewAfterTouchScreen() {

@@ -77,7 +77,13 @@ class RegistrationViewControllerOne: UIViewController {
             navigationController?.pushViewController(regTwoVC, animated: true)
             
         } catch {
-            textFieldDidBeginEditing(firstNameTextField, status: true)
+            textFieldDidBeginEditing(firstNameTextField,
+                                     surNameTextField,
+                                     dateOfBirdhTextField,
+                                     enterNextButton,
+                                     placeholderAgeLabel,
+                                     true)
+            
             textViewDidBeginEditing(PopUpOnErrorView(), status: false)
             setPopUpErrorViewConstrains(errorText: error.localizedDescription)
             
