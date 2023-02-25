@@ -33,11 +33,11 @@ class PopUpOnErrorView: UIView {
         elementsConfigure()
         setLayoutConstraintElements()
         
-        let regOneVC = RegistrationViewControllerOne()
-        
-        enterButton.addTarget(regOneVC.self,
-                              action: #selector(regOneVC.showTextFieldAfterTouchScreen),
-                              for: .touchUpInside)
+//        let regOneVC = RegistrationViewControllerOne()
+//        
+//        enterButton.addTarget(regOneVC.self,
+//                              action: #selector(regOneVC.showTextFieldAfterTouchScreen),
+//                              for: .touchUpInside)
         enterButton.addTarget(self,
                               action: #selector(closeView),
                               for: .touchUpInside)

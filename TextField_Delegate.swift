@@ -23,3 +23,18 @@ extension RegistrationViewControllerOne: UITextFieldDelegate {
         placeholderAge?.isHidden = status ?? false
     }
 }
+
+extension RegistrationViewControllerTwo: UITextFieldDelegate {
+    
+    ///  Функция делает видимыми либо невидимыми добавленные элементы
+    func textFieldDidBeginEditing(_ phoneNumberOrEmail: UITextField?,
+                                  _ login: UITextField?,
+                                  _ password: UITextField?,
+                                  _ enterButton: UIButton?,
+                                  hide status: Bool?) {
+        phoneNumberOrEmail?.isHidden = status ?? false
+        login?.isHidden = status ?? false
+        password?.isHidden = status ?? false
+        enterButton?.isHidden = status ?? false
+    }
+}

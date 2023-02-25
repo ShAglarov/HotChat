@@ -8,11 +8,19 @@
 import UIKit
 
 class PersonsAccountViewController: UIViewController {
+    
+    var firsName = String()
+    var surName = String()
+    var dateOfBirdh = String()
+    var phoneNumberOrEmail = String()
+    var login = String()
+    var password = String()
+    var age = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
     }
     
 

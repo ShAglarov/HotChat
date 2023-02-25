@@ -13,3 +13,10 @@ extension RegistrationViewControllerOne: UITextViewDelegate {
         self.popUpErrorView.isHidden = status
     }
 }
+
+extension RegistrationViewControllerTwo: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: PopUpOnErrorView, status: Bool) {
+        self.popUpErrorView.isHidden = status
+    }
+}

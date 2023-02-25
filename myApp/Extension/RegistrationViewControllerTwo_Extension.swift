@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension RegistrationViewControllerOne {
+extension RegistrationViewControllerTwo {
     
     // прячем клавиатуру при нажатии на область Scroll View
     @objc func hideKeyboardAfterTouchScreen() {
@@ -15,11 +15,10 @@ extension RegistrationViewControllerOne {
     }
     
     @objc func showTextFieldAfterTouchScreen() {
-        textFieldDidBeginEditing(firstNameTextField,
-                                 surNameTextField,
-                                 dateOfBirdhTextField,
-                                 enterNextButton,
-                                 placeholderAgeLabel,
+        textFieldDidBeginEditing(phoneNumberOrEmailTextField,
+                                 loginTextField,
+                                 passwordTextField,
+                                 enterButton,
                                  hide: false)
     }
     
@@ -54,31 +53,6 @@ extension RegistrationViewControllerOne {
     /// во время редактирования текста запрещаем  ставить пробелы
     @objc func editingTextFieldTrimming(text: UITextField) {
         text.trimmingWiteSpacesText()
-    }
-    
-    //запрет на редактирование текста в dateOfBirdhTextField
-    @objc private func dismissKeyboard() {
-        if dateOfBirdhTextField.text?.isString == false {
-            dateOfBirdhTextField.text = String()
-        }
-    }
-    
-    func formatter(date: Date) -> String {
-        let formatter = DateFormatter()
-
-        formatter.dateFormat = "dd.MM.yyyy"
-        
-        let birthday = formatter.date(from: formatter.string(from: date))
-
-        let timeInterval = birthday?.timeIntervalSinceNow
-        age = String(abs(Int(timeInterval! / 31556926.0)))
-        placeholderAgeLabel.text = "\(age) years old"
-        return formatter.string(from: date)
-    }
-
-    @objc func changeDate(datePicker: UIDatePicker) {
-        dateOfBirdhTextField.text = formatter(date: datePicker.date)
-        dateOfBirdhTextField.textColor = .black
     }
     
     func viewsConfigure() {
@@ -118,34 +92,10 @@ extension RegistrationViewControllerOne {
     }
     
     func elementsConfigure() {
-
-        datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: .valueChanged)
-
-        datePicker.datePickerMode = .date
-        datePicker.frame.size = CGSize(width: 0, height: 300)
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.maximumDate = Date()
-
-        dateOfBirdhTextField.inputView = datePicker
-        dateOfBirdhTextField.text = formatter(date: Date.now)
         
-        firstNameTextField.borderStyle = .roundedRect
-        surNameTextField.borderStyle = .roundedRect
-        dateOfBirdhTextField.borderStyle = .roundedRect
-        
-        firstNameTextField.addTarget(self,
-                                     action: #selector(editingTextFieldTrimming(text: )),
-                                     for: .editingChanged)
-        surNameTextField.addTarget(self,
-                                   action: #selector(editingTextFieldTrimming(text: )),
-                                   for: .editingChanged)
-        dateOfBirdhTextField.addTarget(self,
-                                       action: #selector(dismissKeyboard),
-                                       for: .editingChanged)
-        
-        firstNameTextField.textFieldConfigure(
+        phoneNumberOrEmailTextField.textFieldConfigure(
             leftImageViewNamed: nil,
-            textPlaceholder: "First name",
+            textPlaceholder: "Phone number or email address",
             textColor: .darkText,
             font: .italicSystemFont(ofSize: 15),
             addSubview: contentView,
@@ -156,9 +106,9 @@ extension RegistrationViewControllerOne {
                                     )
         )
         
-        surNameTextField.textFieldConfigure(
+        loginTextField.textFieldConfigure(
             leftImageViewNamed: nil,
-            textPlaceholder: "Last name",
+            textPlaceholder: "Login",
             textColor:  .darkText,
             font: .italicSystemFont(ofSize: 15),
             addSubview: contentView,
@@ -169,9 +119,9 @@ extension RegistrationViewControllerOne {
                                     )
         )
         
-        dateOfBirdhTextField.textFieldConfigure(
+        passwordTextField.textFieldConfigure(
             leftImageViewNamed: nil,
-            textPlaceholder: "BirthDay",
+            textPlaceholder: "Password",
             textColor: #colorLiteral(red: 0.4322653115, green: 0.4432953, blue: 0.4431026578, alpha: 1),
             font: .italicSystemFont(ofSize: 15),
             addSubview: contentView,
@@ -182,8 +132,8 @@ extension RegistrationViewControllerOne {
                                     )
         )
         
-        enterNextButton.buttonConfigure(addSubview: contentView,
-                                         title: "Next",
+        enterButton.buttonConfigure(addSubview: contentView,
+                                         title: "Registration",
                                          cornerRadius: 5,
                                          visible: true,
                                          backGroundColor: UIColor(
@@ -269,7 +219,6 @@ extension RegistrationViewControllerOne {
         let const: CGFloat = 20
         
         scrollView.insertSubview(imageVeiw, at: 0)
-        contentView.addSubview(placeholderAgeLabel)
         
         NSLayoutConstraint.activate([
             imageVeiw.centerXAnchor
@@ -285,87 +234,75 @@ extension RegistrationViewControllerOne {
                 .constraint(
                     equalTo: scrollView.bottomAnchor
                 ),
-            // имя
-            firstNameTextField.leftAnchor
+            // номер телефона либо email
+            phoneNumberOrEmailTextField.leftAnchor
                 .constraint(
                     equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
                     constant: const
                 ),
-            firstNameTextField.topAnchor
+            phoneNumberOrEmailTextField.topAnchor
                 .constraint(
                     equalTo: contentView.topAnchor,
                     constant: 25
                 ),
-            firstNameTextField.rightAnchor
+            phoneNumberOrEmailTextField.rightAnchor
                 .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
                             constant: -const
                 ),
-            firstNameTextField.heightAnchor
+            phoneNumberOrEmailTextField.heightAnchor
                 .constraint(
                     equalToConstant: 60
                 ),
-            // фамилия
-            surNameTextField.leadingAnchor
+            // логин
+            loginTextField.leadingAnchor
                 .constraint(
-                    equalTo: firstNameTextField.leadingAnchor
+                    equalTo: phoneNumberOrEmailTextField.leadingAnchor
                 ),
-            surNameTextField.topAnchor
+            loginTextField.topAnchor
                 .constraint(
-                    equalTo: firstNameTextField.bottomAnchor,
+                    equalTo: phoneNumberOrEmailTextField.bottomAnchor,
                     constant: 13
                 ),
-            surNameTextField.trailingAnchor
+            loginTextField.trailingAnchor
                 .constraint(
-                    equalTo: firstNameTextField.trailingAnchor
+                    equalTo: phoneNumberOrEmailTextField.trailingAnchor
                 ),
-            surNameTextField.heightAnchor
+            loginTextField.heightAnchor
                 .constraint(equalToConstant: 60),
-            // дата рождения
-            dateOfBirdhTextField.leadingAnchor
+            // пароль
+            passwordTextField.leadingAnchor
                 .constraint(
-                    equalTo: surNameTextField.leadingAnchor
+                    equalTo: loginTextField.leadingAnchor
                 ),
-            dateOfBirdhTextField.topAnchor
+            passwordTextField.topAnchor
                 .constraint(
-                    equalTo: surNameTextField.bottomAnchor,
+                    equalTo: loginTextField.bottomAnchor,
                     constant: 13
                 ),
-            dateOfBirdhTextField.trailingAnchor
+            passwordTextField.trailingAnchor
                 .constraint(
-                    equalTo: surNameTextField.trailingAnchor
+                    equalTo: loginTextField.trailingAnchor
                 ),
-            dateOfBirdhTextField.heightAnchor
+            passwordTextField.heightAnchor
                 .constraint(equalToConstant: 60
                 ),
-            
-            placeholderAgeLabel.topAnchor
-                .constraint(
-                equalTo: dateOfBirdhTextField.topAnchor
-                ),
-            placeholderAgeLabel.centerXAnchor
-                .constraint(
-                    equalTo: dateOfBirdhTextField.centerXAnchor
-                ),
-
-            enterNextButton.leadingAnchor
-                .constraint(
-                    equalTo: dateOfBirdhTextField.leadingAnchor
-                ),
             // Enter
-            enterNextButton.topAnchor
+            enterButton.leadingAnchor
                 .constraint(
-                    equalTo: dateOfBirdhTextField.bottomAnchor,
+                    equalTo: passwordTextField.leadingAnchor
+                ),
+            enterButton.topAnchor
+                .constraint(
+                    equalTo: passwordTextField.bottomAnchor,
                     constant: 13
                 ),
-            enterNextButton.trailingAnchor
+            enterButton.trailingAnchor
                 .constraint(
-                    equalTo: dateOfBirdhTextField.trailingAnchor
+                    equalTo: passwordTextField.trailingAnchor
                 ),
-            enterNextButton.heightAnchor
+            enterButton.heightAnchor
                 .constraint(equalToConstant: 50)
 
         ])
     }
 }
-
-

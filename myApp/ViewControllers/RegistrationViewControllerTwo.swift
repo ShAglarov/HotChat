@@ -11,6 +11,7 @@ class RegistrationViewControllerTwo: UIViewController {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
+    let popUpErrorView = PopUpOnErrorView()
     let imageVeiw = UIImageView()
     let tapGesture = UITapGestureRecognizer()
     let enterButton = UIButton()
@@ -18,16 +19,57 @@ class RegistrationViewControllerTwo: UIViewController {
     var firsName = String()
     var surName = String()
     var dateOfBirdh = String()
-    var age = String()
+    var age = Int()
     
     let phoneNumberOrEmailTextField = UITextField()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     
-    var didRegister: (Person) -> Void = { person in }
-
+    func inputData() throws -> (String, String, String){
+        
+        guard let phoneNumber = phoneNumberOrEmailTextField.text,
+              !phoneNumber.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterFirstName }
+        
+        guard let login = loginTextField.text,
+              !surName.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterSurName }
+        
+        guard let password = passwordTextField.text,
+              !password.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterDateOfBirdh }
+        
+        return (phoneNumber, login, password)
+    }
+    
+    @objc func presentToFinishedRegistrationVC() {
+        
+        do {
+            let (firstName, surName, dateOfBirdh) = try inputData()
+            
+//            let personsAccountVC = PersonsAccountViewController()
+//
+//            personsAccountVC.firsName = firstName
+//            personsAccountVC.surName = surName
+//            personsAccountVC.dateOfBirdh = dateOfBirdh
+//            personsAccountVC.age = self.age
+            
+            navigationController?.popToRootViewController(animated: true)
+            
+        } catch {
+            textFieldDidBeginEditing(phoneNumberOrEmailTextField,
+                                     loginTextField,
+                                     passwordTextField,
+                                     enterButton,
+                                     hide: true)
+            
+            textViewDidBeginEditing(PopUpOnErrorView(), status: false)
+            setPopUpErrorViewConstrains(errorText: error.localizedDescription)
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        phoneNumberOrEmailTextField.delegate = self
         
         viewsConfigure()
         setScrollViewConstrains()
@@ -46,7 +88,13 @@ class RegistrationViewControllerTwo: UIViewController {
         // второе, когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        enterButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
+        enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
+        
+        let popUPOnErrorView = PopUpOnErrorView()
+        
+        popUpErrorView.enterButton.addTarget(self,
+                              action: #selector(showTextFieldAfterTouchScreen),
+                              for: .touchUpInside)
     }
     
     func scrollUp() {
@@ -55,28 +103,8 @@ class RegistrationViewControllerTwo: UIViewController {
         guard self.preferredInterfaceOrientationForPresentation.isLandscape == true else { return }
         scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
     }
-    
-    @objc func backToMainVC() {
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
-    func createPerson() -> Person {
-        guard let phoneOrEmail = phoneNumberOrEmailTextField.text,
-              let login = loginTextField.text,
-              let password = passwordTextField.text else { return Person() }
-        
-        let person = Person(fistName: firsName,
-                            surName: surName,
-                            dateOfBirdh: dateOfBirdh,
-                            age: Int(age) ?? 0,
-                            phoneNumberOrEmail: phoneOrEmail,
-                            login: login,
-                            password: password
-        )
-        
-        return person
-    }
 
 }
+
 
 

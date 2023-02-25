@@ -7,40 +7,6 @@
 
 import UIKit
 
-enum ErrorInputData: LocalizedError {
-    case errorEnterFirstName
-    case errorEnterSurName
-    case errorEnterDateOfBirdh
-    
-    var errorDescription: String? {
-        switch self {
-        case .errorEnterFirstName:
-            return "Please enter your first name."
-        case .errorEnterSurName:
-            return "Please enter your sur name."
-        case .errorEnterDateOfBirdh:
-            return "Please enter your birthday."
-        }
-    }
-}
-
-enum ErrorInputDataTwo: LocalizedError {
-    case errorEnterFirstName
-    case errorEnterSurName
-    case errorEnterDateOfBirdh
-    
-    var errorDescription: String? {
-        switch self {
-        case .errorEnterFirstName:
-            return "Please enter your first name."
-        case .errorEnterSurName:
-            return "Please enter your sur name."
-        case .errorEnterDateOfBirdh:
-            return "Please enter your birthday."
-        }
-    }
-}
-
 class RegistrationViewControllerOne: UIViewController {
     
     let scrollView = UIScrollView()
@@ -49,7 +15,7 @@ class RegistrationViewControllerOne: UIViewController {
     let imageVeiw = UIImageView()
     let tapGesture = UITapGestureRecognizer()
     let datePicker = UIDatePicker()
-    var age = String()
+    var age = Int()
     
     let firstNameTextField = UITextField()
     let surNameTextField = UITextField()
@@ -69,13 +35,13 @@ class RegistrationViewControllerOne: UIViewController {
     func inputData() throws -> (String, String, String){
         
         guard let firstName = firstNameTextField.text,
-              !firstName.isEmpty else { throw ErrorInputData.errorEnterFirstName }
+              !firstName.isEmpty else { throw ErrorInputDataRegistratioinViewControllerOne.errorEnterFirstName }
         
         guard let surName = surNameTextField.text,
-              !surName.isEmpty else { throw ErrorInputData.errorEnterSurName }
+              !surName.isEmpty else { throw ErrorInputDataRegistratioinViewControllerOne.errorEnterSurName }
         
         guard let birdhDay = dateOfBirdhTextField.text,
-              !birdhDay.isEmpty else { throw ErrorInputData.errorEnterDateOfBirdh }
+              !birdhDay.isEmpty else { throw ErrorInputDataRegistratioinViewControllerOne.errorEnterDateOfBirdh }
         
         return (firstName, surName, birdhDay)
     }
@@ -131,6 +97,12 @@ class RegistrationViewControllerOne: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         enterNextButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
+        
+        let popUPOnErrorView = PopUpOnErrorView()
+        
+        popUpErrorView.enterButton.addTarget(self,
+                              action: #selector(showTextFieldAfterTouchScreen),
+                              for: .touchUpInside)
         
     }
     
