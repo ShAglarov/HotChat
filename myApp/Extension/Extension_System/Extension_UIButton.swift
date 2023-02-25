@@ -16,7 +16,7 @@ extension UIButton {
         cornerRadius: CGFloat?,
         visible: Bool?,
         backGroundColor: UIColor?,
-        tintColor: UIColor?)
+        titleColor: UIColor?)
     {
         guard let subView = addSubview else { return }
         
@@ -25,7 +25,6 @@ extension UIButton {
         self.layer.cornerRadius = cornerRadius ?? 0.0
         self.translatesAutoresizingMaskIntoConstraints = !(visible ?? true)
         self.backgroundColor = backGroundColor
-        self.tintColor = tintColor
+        self.setTitleColor(titleColor, for: .normal)
     }
-    
 }

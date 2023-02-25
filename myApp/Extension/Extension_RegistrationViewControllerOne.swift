@@ -78,6 +78,7 @@ extension RegistrationViewControllerOne {
 
     @objc func changeDate(datePicker: UIDatePicker) {
         dateOfBirdhTextField.text = formatter(date: datePicker.date)
+        dateOfBirdhTextField.textColor = .black
     }
     
     func viewsConfigure() {
@@ -127,24 +128,20 @@ extension RegistrationViewControllerOne {
 
         dateOfBirdhTextField.inputView = datePicker
         dateOfBirdhTextField.text = formatter(date: Date.now)
-        dateOfBirdhTextField.textFieldConfigure(leftImageViewNamed: nil,
-            textPlaceholder: "Enter your date of birdh (\(age) years old)",
-            textColor: .darkText,
-            font: UIFont.italicSystemFont(ofSize: 15),
-            addSubview: contentView,
-            cornerRadius: nil,
-            visible: true,
-            backGroundColor: UIColor(patternImage:
-                                        UIImage(named: "textFieldBackground")!)
-        )
         
         firstNameTextField.borderStyle = .roundedRect
         surNameTextField.borderStyle = .roundedRect
         dateOfBirdhTextField.borderStyle = .roundedRect
         
-        firstNameTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
-        surNameTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
-        dateOfBirdhTextField.addTarget(self, action: #selector(dismissKeyboard), for: .editingChanged)
+        firstNameTextField.addTarget(self,
+                                     action: #selector(editingTextFieldTrimming(text: )),
+                                     for: .editingChanged)
+        surNameTextField.addTarget(self,
+                                   action: #selector(editingTextFieldTrimming(text: )),
+                                   for: .editingChanged)
+        dateOfBirdhTextField.addTarget(self,
+                                       action: #selector(dismissKeyboard),
+                                       for: .editingChanged)
         
         firstNameTextField.textFieldConfigure(
             leftImageViewNamed: nil,
@@ -162,7 +159,7 @@ extension RegistrationViewControllerOne {
         surNameTextField.textFieldConfigure(
             leftImageViewNamed: nil,
             textPlaceholder: "Last name",
-            textColor: .darkText,
+            textColor:  .darkText,
             font: .italicSystemFont(ofSize: 15),
             addSubview: contentView,
             cornerRadius: nil,
@@ -175,13 +172,13 @@ extension RegistrationViewControllerOne {
         dateOfBirdhTextField.textFieldConfigure(
             leftImageViewNamed: nil,
             textPlaceholder: "BirthDay",
-            textColor: .darkText,
+            textColor: #colorLiteral(red: 0.4322653115, green: 0.4432953, blue: 0.4431026578, alpha: 1),
             font: .italicSystemFont(ofSize: 15),
             addSubview: contentView,
             cornerRadius: nil,
             visible: true,
             backGroundColor: UIColor(patternImage:
-                                         UIImage(named: "textFieldBackground")!
+                                        UIImage(named: "textFieldBackground")!
                                     )
         )
         
@@ -191,7 +188,8 @@ extension RegistrationViewControllerOne {
                                          visible: true,
                                          backGroundColor: UIColor(
                                             patternImage: UIImage(named: "buttonBackground")!),
-                                         tintColor: .darkText)
+                                        titleColor: #colorLiteral(red: 0.9435585141, green: 1, blue: 0.7481297851, alpha: 1)
+        )
     }
     
     func setPopUpErrorViewConstrains(errorText: String) {
@@ -209,7 +207,7 @@ extension RegistrationViewControllerOne {
             popUpErrorView.topAnchor
                 .constraint(
                     equalTo: contentView.topAnchor,
-                    constant: 50
+                    constant: 70
                 ),
             popUpErrorView.rightAnchor
                 .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
@@ -217,7 +215,7 @@ extension RegistrationViewControllerOne {
                 ),
             popUpErrorView.heightAnchor
                 .constraint(
-                    equalToConstant: 120
+                    equalToConstant: 140
                 ),
         ])
     }

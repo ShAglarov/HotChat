@@ -37,12 +37,12 @@ class RegistrationViewControllerOne: UIViewController {
     let surNameTextField = UITextField()
     let dateOfBirdhTextField = UITextField()
     let enterNextButton = UIButton()
-
+    
     let placeholderAgeLabel: UILabel = {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        label.textColor = #colorLiteral(red: 0.6771491766, green: 0.6856736541, blue: 0.6855236888, alpha: 1)
         label.text = String()
         label.font = .italicSystemFont(ofSize: 15)
         return label

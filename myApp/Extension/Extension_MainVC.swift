@@ -95,7 +95,8 @@ extension MainViewController {
                                          visible: true,
                                          backGroundColor: UIColor(
                                             patternImage: UIImage(named: "buttonBackground")!),
-                                         tintColor: .darkText)
+                                    titleColor: #colorLiteral(red: 0.9435585141, green: 1, blue: 0.7481297851, alpha: 1)
+        )
         
         registrationButton.buttonConfigure(addSubview: contentView,
                                          title: "Register account",
@@ -103,7 +104,8 @@ extension MainViewController {
                                          visible: true,
                                          backGroundColor: UIColor(
                                             patternImage: UIImage(named: "buttonBackground")!),
-                                         tintColor: .darkText)
+                                           titleColor: #colorLiteral(red: 0.9435585141, green: 1, blue: 0.7481297851, alpha: 1)
+        )
     }
     
     func setScrollViewConstrains() {

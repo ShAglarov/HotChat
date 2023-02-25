@@ -11,6 +11,7 @@ class PopUpOnErrorView: UIView {
     
     let textError: UILabel = {
         let text = UILabel()
+        text.textColor = #colorLiteral(red: 0.7152026296, green: 0.7242060304, blue: 0.7240476012, alpha: 1)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
@@ -34,20 +35,25 @@ class PopUpOnErrorView: UIView {
         
         let regOneVC = RegistrationViewControllerOne()
         
-        enterButton.addTarget(regOneVC.self, action: #selector(regOneVC.showTextFieldAfterTouchScreen), for: .touchUpInside)
-        enterButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
+        enterButton.addTarget(regOneVC.self,
+                              action: #selector(regOneVC.showTextFieldAfterTouchScreen),
+                              for: .touchUpInside)
+        enterButton.addTarget(self,
+                              action: #selector(closeView),
+                              for: .touchUpInside)
         
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "viewBackground")!)
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "textFieldBackground")!)
     }
     
     func elementsConfigure() {
         
         enterButton.buttonConfigure(addSubview: self,
                                     title: "Try again",
-                                    cornerRadius: 2,
+                                    cornerRadius: 5,
                                     visible: true,
                                     backGroundColor: UIColor(patternImage: UIImage(named: "buttonBackground")!),
-                                    tintColor: .black)
+                                    titleColor: #colorLiteral(red: 0.9435585141, green: 1, blue: 0.7481297851, alpha: 1)
+        )
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .systemYellow
@@ -71,7 +77,7 @@ class PopUpOnErrorView: UIView {
             textError.topAnchor
                 .constraint(
                     equalTo: self.topAnchor,
-                    constant: 20
+                    constant: 30
                 ),
             enterButton.widthAnchor
                 .constraint(
@@ -83,7 +89,7 @@ class PopUpOnErrorView: UIView {
                     constant: 0
                 ),
             enterButton.heightAnchor
-                .constraint(equalToConstant: 45)
+                .constraint(equalToConstant: 55)
         ])
     }
     
