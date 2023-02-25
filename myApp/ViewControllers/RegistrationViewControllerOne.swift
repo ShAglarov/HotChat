@@ -15,11 +15,11 @@ enum ErrorInputData: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .errorEnterFirstName:
-            return "Для продолжения введите имя!"
+            return "Please enter your first name."
         case .errorEnterSurName:
-            return "Для продолжения введите фамилию!"
+            return "Please enter your sur name."
         case .errorEnterDateOfBirdh:
-            return "Для продолжения выберите дату рождения!"
+            return "Please enter your birthday."
         }
     }
 }
@@ -79,7 +79,7 @@ class RegistrationViewControllerOne: UIViewController {
         } catch {
             textFieldDidBeginEditing(firstNameTextField, status: true)
             textViewDidBeginEditing(PopUpOnErrorView(), status: false)
-            addPopUpError(errorText: error.localizedDescription)
+            setPopUpErrorViewConstrains(errorText: error.localizedDescription)
             
         }
     }

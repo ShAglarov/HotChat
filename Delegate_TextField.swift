@@ -14,5 +14,6 @@ extension RegistrationViewControllerOne: UITextFieldDelegate {
         self.firstNameTextField.isHidden = status
         self.dateOfBirdhTextField.isHidden = status
         self.enterNextButton.isHidden = status
+        self.placeholderAgeLabel.isHidden = status
     }
 }

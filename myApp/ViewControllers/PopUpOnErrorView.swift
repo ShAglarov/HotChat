@@ -35,8 +35,9 @@ class PopUpOnErrorView: UIView {
         let regOneVC = RegistrationViewControllerOne()
         
         enterButton.addTarget(regOneVC.self, action: #selector(regOneVC.showTextFieldAfterTouchScreen), for: .touchUpInside)
-        
         enterButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
+        
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "viewBackground")!)
     }
     
     func elementsConfigure() {
@@ -72,7 +73,7 @@ class PopUpOnErrorView: UIView {
             textError.topAnchor
                 .constraint(
                     equalTo: self.topAnchor,
-                    constant: 10
+                    constant: 20
                 ),
             enterButton.widthAnchor
                 .constraint(
@@ -82,7 +83,9 @@ class PopUpOnErrorView: UIView {
                 .constraint(
                     equalTo: self.bottomAnchor,
                     constant: 0
-                )
+                ),
+            enterButton.heightAnchor
+                .constraint(equalToConstant: 45)
         ])
     }
     

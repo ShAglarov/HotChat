@@ -104,6 +104,11 @@ extension RegistrationViewControllerOne {
                                         patternImage: UIImage(named: "scrollViewBackground")!)
         )
         
+        popUpErrorView.viewConfigure(addSubview: contentView,
+                                     cornerRadius: 10,
+                                     visible: true,
+                                     backGroundColor: nil
+        )
     }
     
     func elementsConfigure() {
@@ -116,6 +121,7 @@ extension RegistrationViewControllerOne {
         datePicker.maximumDate = Date()
 
         dateOfBirdhTextField.inputView = datePicker
+        dateOfBirdhTextField.text = formatter(date: Date.now)
         dateOfBirdhTextField.textFieldConfigure(leftImageViewNamed: nil,
             textPlaceholder: "Enter your date of birdh (\(age) years old)",
             textColor: .darkText,
@@ -181,16 +187,12 @@ extension RegistrationViewControllerOne {
                                          backGroundColor: UIColor(
                                             patternImage: UIImage(named: "buttonBackground")!),
                                          tintColor: .darkText)
-        
     }
     
-    func addPopUpError(errorText: String) {
+    func setPopUpErrorViewConstrains(errorText: String) {
         
         popUpErrorView.textError.text = errorText
-        popUpErrorView.translatesAutoresizingMaskIntoConstraints = false
-    
-        contentView.addSubview(popUpErrorView)
-        
+
         let const: CGFloat = 20
         
         NSLayoutConstraint.activate([
@@ -202,7 +204,7 @@ extension RegistrationViewControllerOne {
             popUpErrorView.topAnchor
                 .constraint(
                     equalTo: contentView.topAnchor,
-                    constant: 25
+                    constant: 50
                 ),
             popUpErrorView.rightAnchor
                 .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
@@ -210,7 +212,7 @@ extension RegistrationViewControllerOne {
                 ),
             popUpErrorView.heightAnchor
                 .constraint(
-                    equalToConstant: 100
+                    equalToConstant: 120
                 ),
         ])
     }
