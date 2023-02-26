@@ -235,7 +235,7 @@ extension MainViewController {
             registrationButton.bottomAnchor
                 .constraint(
                     equalTo: view.bottomAnchor,
-                    constant: -15
+                    constant: -100
                 ),
             registrationButton.heightAnchor
                 .constraint(equalToConstant: 35)

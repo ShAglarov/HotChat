@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B8E276829A4F8FA00A9F420 /* Persons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276729A4F8FA00A9F420 /* Persons.swift */; };
+		4B8E276829A4F8FA00A9F420 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276729A4F8FA00A9F420 /* Person.swift */; };
 		4B8E276E29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */; };
 		4B8E277029A5298A00A9F420 /* RegistrationViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */; };
 		4B8E277229A5554000A9F420 /* RegistrationViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E277129A5554000A9F420 /* RegistrationViewControllerTwo.swift */; };
@@ -33,7 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B8E276729A4F8FA00A9F420 /* Persons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persons.swift; sourceTree = "<group>"; };
+		4B8E276729A4F8FA00A9F420 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOne_Extension.swift; sourceTree = "<group>"; };
 		4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOne.swift; sourceTree = "<group>"; };
 		4B8E277129A5554000A9F420 /* RegistrationViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerTwo.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 			children = (
 				4BE110F3299ADE3A002D1541 /* AppDelegate.swift */,
 				4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */,
-				4B8E276729A4F8FA00A9F420 /* Persons.swift */,
+				4B8E276729A4F8FA00A9F420 /* Person.swift */,
 				4B25347329A4454B00B84806 /* ViewControllers */,
 				4BAAB8BF29A01A2B00383743 /* Extension */,
 				4BBBF3B829A9785F00FF4304 /* Delegate */,
@@ -252,7 +252,7 @@
 				4BBBF3AE29A7D40B00FF4304 /* NavigationController_Extension.swift in Sources */,
 				4B8E276E29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift in Sources */,
 				4BB71963299E5DDA00EDADA7 /* MainVC_Extension.swift in Sources */,
-				4B8E276829A4F8FA00A9F420 /* Persons.swift in Sources */,
+				4B8E276829A4F8FA00A9F420 /* Person.swift in Sources */,
 				4BBBF3BA29A98CCA00FF4304 /* UIView_Delegate.swift in Sources */,
 				4BAAB8C129A027E300383743 /* UIButton_Extension.swift in Sources */,
 				4BBBF3B729A9785700FF4304 /* TextField_Delegate.swift in Sources */,

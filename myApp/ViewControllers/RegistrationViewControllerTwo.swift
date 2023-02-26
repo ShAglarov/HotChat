@@ -21,35 +21,31 @@ class RegistrationViewControllerTwo: UIViewController {
     var dateOfBirdh = String()
     var age = Int()
     
+    var didRegister: (Person) -> Void = { person in }
+    
     let phoneNumberOrEmailTextField = UITextField()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     
-    func inputData() throws -> (String, String, String){
+    func inputData() throws {
         
         guard let phoneNumber = phoneNumberOrEmailTextField.text,
               !phoneNumber.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterFirstName }
         
         guard let login = loginTextField.text,
-              !surName.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterSurName }
+              !login.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterSurName }
         
         guard let password = passwordTextField.text,
               !password.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterDateOfBirdh }
         
-        return (phoneNumber, login, password)
     }
     
     @objc func presentToFinishedRegistrationVC() {
         
         do {
-            let (firstName, surName, dateOfBirdh) = try inputData()
+            try inputData()
             
-//            let personsAccountVC = PersonsAccountViewController()
-//
-//            personsAccountVC.firsName = firstName
-//            personsAccountVC.surName = surName
-//            personsAccountVC.dateOfBirdh = dateOfBirdh
-//            personsAccountVC.age = self.age
+            didRegister(createPerson())
             
             navigationController?.popToRootViewController(animated: true)
             

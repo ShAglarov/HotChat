@@ -55,6 +55,18 @@ extension RegistrationViewControllerTwo {
         text.trimmingWiteSpacesText()
     }
     
+    func createPerson() -> Person {
+        
+        let person = Person(fistName: firsName,
+                            surName: surName,
+                            dateOfBirdh: dateOfBirdh,
+                            age: age,
+                            phoneNumberOrEmail: phoneNumberOrEmailTextField.text ?? "",
+                            login: loginTextField.text ?? "",
+                            password: passwordTextField.text ?? "")
+        return person
+    }
+    
     func viewsConfigure() {
         
         view.backgroundColor = UIColor(
@@ -122,7 +134,7 @@ extension RegistrationViewControllerTwo {
         passwordTextField.textFieldConfigure(
             leftImageViewNamed: nil,
             textPlaceholder: "Password",
-            textColor: #colorLiteral(red: 0.4322653115, green: 0.4432953, blue: 0.4431026578, alpha: 1),
+            textColor: .darkText,
             font: .italicSystemFont(ofSize: 15),
             addSubview: contentView,
             cornerRadius: nil,
