@@ -7,10 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BAAB8BC29A00A7300383743 /* Extension_UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */; };
-		4BAAB8BE29A01A2200383743 /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */; };
-		4BAAB8C129A027E300383743 /* Extension_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8C029A027E300383743 /* Extension_UIButton.swift */; };
-		4BB71963299E5DDA00EDADA7 /* Extension_MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */; };
+		4B15B2AB29AEB95C000DBB1B /* ErrorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15B2AA29AEB95C000DBB1B /* ErrorMainViewController.swift */; };
+		4B8E276829A4F8FA00A9F420 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276729A4F8FA00A9F420 /* Person.swift */; };
+		4B8E276E29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */; };
+		4B8E277029A5298A00A9F420 /* RegistrationViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */; };
+		4B8E277229A5554000A9F420 /* RegistrationViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E277129A5554000A9F420 /* RegistrationViewControllerTwo.swift */; };
+		4B8E277429A555CB00A9F420 /* RegistrationViewControllerTwo_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E277329A555CB00A9F420 /* RegistrationViewControllerTwo_Extension.swift */; };
+		4B9825AA29A1F60900201702 /* information.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4B9825A929A1F60900201702 /* information.rtf */; };
+		4BAAB8BC29A00A7300383743 /* UITextField_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BB29A00A7300383743 /* UITextField_Extension.swift */; };
+		4BAAB8BE29A01A2200383743 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8BD29A01A2200383743 /* UIView_Extension.swift */; };
+		4BAAB8C129A027E300383743 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAB8C029A027E300383743 /* UIButton_Extension.swift */; };
+		4BB2B8D429A3C95200A40B9D /* PersonsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */; };
+		4BB71963299E5DDA00EDADA7 /* MainVC_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB71962299E5DDA00EDADA7 /* MainVC_Extension.swift */; };
+		4BBBF3AC29A7B2FB00FF4304 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3AB29A7B2FB00FF4304 /* String_Extension.swift */; };
+		4BBBF3AE29A7D40B00FF4304 /* NavigationController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3AD29A7D40B00FF4304 /* NavigationController_Extension.swift */; };
+		4BBBF3B429A8098F00FF4304 /* PopUpOnErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3B329A8098F00FF4304 /* PopUpOnErrorView.swift */; };
+		4BBBF3B729A9785700FF4304 /* TextField_Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3B629A9785700FF4304 /* TextField_Delegate.swift */; };
+		4BBBF3BA29A98CCA00FF4304 /* UIView_Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3B929A98CCA00FF4304 /* UIView_Delegate.swift */; };
+		4BBBF3BE29AACAAC00FF4304 /* ErrorInputDataRegistratioinViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3BD29AACAAC00FF4304 /* ErrorInputDataRegistratioinViewControllerOne.swift */; };
+		4BBBF3C129AACC0700FF4304 /* ErrorInputDataRegistratioinViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF3C029AACC0700FF4304 /* ErrorInputDataRegistratioinViewControllerTwo.swift */; };
 		4BE110F4299ADE3A002D1541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F3299ADE3A002D1541 /* AppDelegate.swift */; };
 		4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */; };
 		4BE110F8299ADE3A002D1541 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE110F7299ADE3A002D1541 /* MainViewController.swift */; };
@@ -19,10 +34,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UITextField.swift; sourceTree = "<group>"; };
-		4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
-		4BAAB8C029A027E300383743 /* Extension_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIButton.swift; sourceTree = "<group>"; };
-		4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_MainVC.swift; sourceTree = "<group>"; };
+		4B15B2AA29AEB95C000DBB1B /* ErrorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMainViewController.swift; sourceTree = "<group>"; };
+		4B8E276729A4F8FA00A9F420 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOne_Extension.swift; sourceTree = "<group>"; };
+		4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOne.swift; sourceTree = "<group>"; };
+		4B8E277129A5554000A9F420 /* RegistrationViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerTwo.swift; sourceTree = "<group>"; };
+		4B8E277329A555CB00A9F420 /* RegistrationViewControllerTwo_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerTwo_Extension.swift; sourceTree = "<group>"; };
+		4B9825A929A1F60900201702 /* information.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = information.rtf; sourceTree = "<group>"; };
+		4BAAB8BB29A00A7300383743 /* UITextField_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField_Extension.swift; sourceTree = "<group>"; };
+		4BAAB8BD29A01A2200383743 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
+		4BAAB8C029A027E300383743 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
+		4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsAccountViewController.swift; sourceTree = "<group>"; };
+		4BB71962299E5DDA00EDADA7 /* MainVC_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC_Extension.swift; sourceTree = "<group>"; };
+		4BBBF3AB29A7B2FB00FF4304 /* String_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
+		4BBBF3AD29A7D40B00FF4304 /* NavigationController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController_Extension.swift; sourceTree = "<group>"; };
+		4BBBF3B329A8098F00FF4304 /* PopUpOnErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpOnErrorView.swift; sourceTree = "<group>"; };
+		4BBBF3B629A9785700FF4304 /* TextField_Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField_Delegate.swift; sourceTree = "<group>"; };
+		4BBBF3B929A98CCA00FF4304 /* UIView_Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Delegate.swift; sourceTree = "<group>"; };
+		4BBBF3BD29AACAAC00FF4304 /* ErrorInputDataRegistratioinViewControllerOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorInputDataRegistratioinViewControllerOne.swift; sourceTree = "<group>"; };
+		4BBBF3C029AACC0700FF4304 /* ErrorInputDataRegistratioinViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorInputDataRegistratioinViewControllerTwo.swift; sourceTree = "<group>"; };
 		4BE110F0299ADE39002D1541 /* myApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE110F3299ADE3A002D1541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,15 +73,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B25347129A444FD00B84806 /* Extension_System */ = {
+			isa = PBXGroup;
+			children = (
+				4BAAB8BB29A00A7300383743 /* UITextField_Extension.swift */,
+				4BAAB8BD29A01A2200383743 /* UIView_Extension.swift */,
+				4BAAB8C029A027E300383743 /* UIButton_Extension.swift */,
+				4BBBF3AB29A7B2FB00FF4304 /* String_Extension.swift */,
+				4BBBF3AD29A7D40B00FF4304 /* NavigationController_Extension.swift */,
+			);
+			path = Extension_System;
+			sourceTree = "<group>";
+		};
+		4B25347229A4451D00B84806 /* Extension_ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB71962299E5DDA00EDADA7 /* MainVC_Extension.swift */,
+				4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */,
+				4B8E277329A555CB00A9F420 /* RegistrationViewControllerTwo_Extension.swift */,
+			);
+			name = Extension_ViewControllers;
+			sourceTree = "<group>";
+		};
+		4B25347329A4454B00B84806 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BE110F7299ADE3A002D1541 /* MainViewController.swift */,
+				4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */,
+				4B8E277129A5554000A9F420 /* RegistrationViewControllerTwo.swift */,
+				4BB2B8D329A3C95200A40B9D /* PersonsAccountViewController.swift */,
+				4BBBF3B329A8098F00FF4304 /* PopUpOnErrorView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4BAAB8BF29A01A2B00383743 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4BB71962299E5DDA00EDADA7 /* Extension_MainVC.swift */,
-				4BAAB8BB29A00A7300383743 /* Extension_UITextField.swift */,
-				4BAAB8BD29A01A2200383743 /* Extension_UIView.swift */,
-				4BAAB8C029A027E300383743 /* Extension_UIButton.swift */,
+				4B25347229A4451D00B84806 /* Extension_ViewControllers */,
+				4B25347129A444FD00B84806 /* Extension_System */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4BBBF3B829A9785F00FF4304 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				4BBBF3B629A9785700FF4304 /* TextField_Delegate.swift */,
+				4BBBF3B929A98CCA00FF4304 /* UIView_Delegate.swift */,
+			);
+			name = Delegate;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4BBBF3BF29AACB7600FF4304 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				4BBBF3BD29AACAAC00FF4304 /* ErrorInputDataRegistratioinViewControllerOne.swift */,
+				4BBBF3C029AACC0700FF4304 /* ErrorInputDataRegistratioinViewControllerTwo.swift */,
+				4B15B2AA29AEB95C000DBB1B /* ErrorMainViewController.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		4BE110E7299ADE39002D1541 = {
@@ -75,10 +157,14 @@
 			children = (
 				4BE110F3299ADE3A002D1541 /* AppDelegate.swift */,
 				4BE110F5299ADE3A002D1541 /* SceneDelegate.swift */,
-				4BE110F7299ADE3A002D1541 /* MainViewController.swift */,
+				4B8E276729A4F8FA00A9F420 /* Person.swift */,
+				4B25347329A4454B00B84806 /* ViewControllers */,
 				4BAAB8BF29A01A2B00383743 /* Extension */,
+				4BBBF3B829A9785F00FF4304 /* Delegate */,
+				4BBBF3BF29AACB7600FF4304 /* Enum */,
 				4BE110FC299ADE3C002D1541 /* Assets.xcassets */,
 				4BE110FE299ADE3C002D1541 /* LaunchScreen.storyboard */,
+				4B9825A929A1F60900201702 /* information.rtf */,
 				4BE11101299ADE3C002D1541 /* Info.plist */,
 			);
 			path = myApp;
@@ -142,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B9825AA29A1F60900201702 /* information.rtf in Resources */,
 				4BE11100299ADE3C002D1541 /* LaunchScreen.storyboard in Resources */,
 				4BE110FD299ADE3C002D1541 /* Assets.xcassets in Resources */,
 			);
@@ -154,13 +241,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BBBF3BE29AACAAC00FF4304 /* ErrorInputDataRegistratioinViewControllerOne.swift in Sources */,
 				4BE110F8299ADE3A002D1541 /* MainViewController.swift in Sources */,
-				4BAAB8BC29A00A7300383743 /* Extension_UITextField.swift in Sources */,
-				4BAAB8BE29A01A2200383743 /* Extension_UIView.swift in Sources */,
+				4B8E277429A555CB00A9F420 /* RegistrationViewControllerTwo_Extension.swift in Sources */,
+				4BAAB8BC29A00A7300383743 /* UITextField_Extension.swift in Sources */,
+				4BAAB8BE29A01A2200383743 /* UIView_Extension.swift in Sources */,
+				4B8E277029A5298A00A9F420 /* RegistrationViewControllerOne.swift in Sources */,
 				4BE110F4299ADE3A002D1541 /* AppDelegate.swift in Sources */,
+				4BBBF3C129AACC0700FF4304 /* ErrorInputDataRegistratioinViewControllerTwo.swift in Sources */,
 				4BE110F6299ADE3A002D1541 /* SceneDelegate.swift in Sources */,
-				4BB71963299E5DDA00EDADA7 /* Extension_MainVC.swift in Sources */,
-				4BAAB8C129A027E300383743 /* Extension_UIButton.swift in Sources */,
+				4BBBF3B429A8098F00FF4304 /* PopUpOnErrorView.swift in Sources */,
+				4B8E277229A5554000A9F420 /* RegistrationViewControllerTwo.swift in Sources */,
+				4BBBF3AE29A7D40B00FF4304 /* NavigationController_Extension.swift in Sources */,
+				4B8E276E29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift in Sources */,
+				4BB71963299E5DDA00EDADA7 /* MainVC_Extension.swift in Sources */,
+				4B8E276829A4F8FA00A9F420 /* Person.swift in Sources */,
+				4BBBF3BA29A98CCA00FF4304 /* UIView_Delegate.swift in Sources */,
+				4B15B2AB29AEB95C000DBB1B /* ErrorMainViewController.swift in Sources */,
+				4BAAB8C129A027E300383743 /* UIButton_Extension.swift in Sources */,
+				4BBBF3B729A9785700FF4304 /* TextField_Delegate.swift in Sources */,
+				4BB2B8D429A3C95200A40B9D /* PersonsAccountViewController.swift in Sources */,
+				4BBBF3AC29A7B2FB00FF4304 /* String_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +405,8 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,8 +432,8 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
