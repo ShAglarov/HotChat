@@ -14,6 +14,21 @@ extension MainViewController {
         view.endEditing(true)
     }
     
+    @objc func showTextFieldAfterTouchScreen() {
+        textFieldDidBeginEditing(loginTextField,
+                                 passwordTextField,
+                                 enterButton,
+                                 hide: false)
+    }
+    
+    @objc func hidePopUpErrorViewAfterTouchScreen() {
+        textViewDidBeginEditing(popUpErrorView, status: true)
+    }
+    
+    @objc func showPopUpErrorViewAfterTouchScreen() {
+        textViewDidBeginEditing(popUpErrorView, status: false)
+    }
+    
     // когда клавиатура появляетя
     @objc func keyboardWasShown(notification: Notification) {
         
@@ -40,6 +55,11 @@ extension MainViewController {
         imageVeiw.translatesAutoresizingMaskIntoConstraints = false
         
         tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTouchScreen))
+        tapGesture.addTarget(self, action: #selector(showTextFieldAfterTouchScreen))
+        tapGesture.addTarget(self, action: #selector(hidePopUpErrorViewAfterTouchScreen))
+        
+        tapGesture.addTarget(self, action: #selector(hideKeyboardAfterTouchScreen))
+        
         view.addGestureRecognizer(tapGesture)
         
         scrollView.viewConfigure(addSubview: view,
@@ -53,6 +73,12 @@ extension MainViewController {
                                        visible: true,
                                        backGroundColor: UIColor(
                                         patternImage: UIImage(named: "scrollViewBackground")!)
+        )
+        
+        popUpErrorView.viewConfigure(addSubview: scrollView,
+                                     cornerRadius: 10,
+                                     visible: true,
+                                     backGroundColor: nil
         )
     }
     
@@ -149,6 +175,34 @@ extension MainViewController {
                 .constraint(
                     equalToConstant: 523
                 )
+        ])
+    }
+    
+    func setPopUpErrorViewConstrains(errorText: String) {
+        
+        popUpErrorView.textError.text = errorText
+
+        let const: CGFloat = 20
+        
+        NSLayoutConstraint.activate([
+            popUpErrorView.leftAnchor
+                .constraint(
+                    equalTo: contentView.safeAreaLayoutGuide.leftAnchor,
+                    constant: const
+                ),
+            popUpErrorView.topAnchor
+                .constraint(
+                    equalTo: contentView.topAnchor,
+                    constant: 70
+                ),
+            popUpErrorView.rightAnchor
+                .constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor,
+                            constant: -const
+                ),
+            popUpErrorView.heightAnchor
+                .constraint(
+                    equalToConstant: 140
+                ),
         ])
     }
     

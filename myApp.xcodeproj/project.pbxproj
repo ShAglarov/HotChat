@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B15B2AB29AEB95C000DBB1B /* ErrorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15B2AA29AEB95C000DBB1B /* ErrorMainViewController.swift */; };
 		4B8E276829A4F8FA00A9F420 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276729A4F8FA00A9F420 /* Person.swift */; };
 		4B8E276E29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */; };
 		4B8E277029A5298A00A9F420 /* RegistrationViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B15B2AA29AEB95C000DBB1B /* ErrorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMainViewController.swift; sourceTree = "<group>"; };
 		4B8E276729A4F8FA00A9F420 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		4B8E276D29A528A800A9F420 /* RegistrationViewControllerOne_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOne_Extension.swift; sourceTree = "<group>"; };
 		4B8E276F29A5298A00A9F420 /* RegistrationViewControllerOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOne.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				4BBBF3BD29AACAAC00FF4304 /* ErrorInputDataRegistratioinViewControllerOne.swift */,
 				4BBBF3C029AACC0700FF4304 /* ErrorInputDataRegistratioinViewControllerTwo.swift */,
+				4B15B2AA29AEB95C000DBB1B /* ErrorMainViewController.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				4BB71963299E5DDA00EDADA7 /* MainVC_Extension.swift in Sources */,
 				4B8E276829A4F8FA00A9F420 /* Person.swift in Sources */,
 				4BBBF3BA29A98CCA00FF4304 /* UIView_Delegate.swift in Sources */,
+				4B15B2AB29AEB95C000DBB1B /* ErrorMainViewController.swift in Sources */,
 				4BAAB8C129A027E300383743 /* UIButton_Extension.swift in Sources */,
 				4BBBF3B729A9785700FF4304 /* TextField_Delegate.swift in Sources */,
 				4BB2B8D429A3C95200A40B9D /* PersonsAccountViewController.swift in Sources */,

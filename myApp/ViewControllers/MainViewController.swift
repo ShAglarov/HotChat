@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var persons = [Person]()
     let scrollView = UIScrollView()
     let contentView = UIView()
     let imageVeiw = UIImageView()
@@ -17,6 +18,7 @@ class MainViewController: UIViewController {
     let enterButton = UIButton()
     let registrationButton = UIButton()
     let tapGesture = UITapGestureRecognizer()
+    let popUpErrorView = PopUpOnErrorView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -30,8 +32,56 @@ class MainViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    @objc func registration() {
+        navigationController?.pushViewController(RegistrationViewControllerOne(), animated: true)
+    }
+    
+    func inputData() throws -> Int {
+        
+        let checkPerson = persons.first { person in
+            person.login == loginTextField.text
+        }
+        
+        if checkPerson == nil { throw ErrorInputDataMainViewController.errorEnterLogin }
+        
+        guard checkPerson?.password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
+        
+        guard let indexOfPerson = persons.firstIndex(where: { $0 === checkPerson })
+        else { throw ErrorInputDataMainViewController.notPerson }
+        
+        return indexOfPerson
+    }
+    
+    @objc func checkEnterLoginAndPassword() {
+        
+        do {
+            let person = try inputData()
+            
+            let personAccountVC = PersonsAccountViewController()
+            
+            personAccountVC.person = persons[person]
+            
+            navigationController?.pushViewController(personAccountVC, animated: true)
+            
+        } catch {
+            textFieldDidBeginEditing(loginTextField, passwordTextField, enterButton, hide: true)
+            
+            textViewDidBeginEditing(PopUpOnErrorView(), status: false)
+            setPopUpErrorViewConstrains(errorText: error.localizedDescription)
+        }
+    }
+
+    func scrollUp() {
+        
+        //проверка поворота экрана если она горизонтальная то сдвигаем scrollView немного вверх
+        guard self.preferredInterfaceOrientationForPresentation.isLandscape == true else { return }
+        scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginTextField.delegate = self
         
         viewsConfigure()
         setScrollViewConstrains()
@@ -52,17 +102,11 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         registrationButton.addTarget(self, action: #selector(registration), for: .touchUpInside)
-    }
-    
-    @objc func registration() {
-        navigationController?.pushViewController(RegistrationViewControllerOne(), animated: true)
-    }
-
-    func scrollUp() {
         
-        //проверка поворота экрана если она горизонтальная то сдвигаем scrollView немного вверх
-        guard self.preferredInterfaceOrientationForPresentation.isLandscape == true else { return }
-        scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
+        enterButton.addTarget(self, action: #selector(checkEnterLoginAndPassword), for: .touchUpInside)
+        
+        popUpErrorView.enterButton.addTarget(self,
+                              action: #selector(showTextFieldAfterTouchScreen),
+                              for: .touchUpInside)
     }
-    
 }

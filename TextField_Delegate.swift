@@ -38,3 +38,16 @@ extension RegistrationViewControllerTwo: UITextFieldDelegate {
         enterButton?.isHidden = status ?? false
     }
 }
+
+extension MainViewController: UITextFieldDelegate {
+    
+    ///  Функция делает видимыми либо невидимыми добавленные элементы
+    func textFieldDidBeginEditing(_ login: UITextField?,
+                                  _ password: UITextField?,
+                                  _ enterButton: UIButton?,
+                                  hide status: Bool?) {
+        login?.isHidden = status ?? false
+        password?.isHidden = status ?? false
+        enterButton?.isHidden = status ?? false
+    }
+}

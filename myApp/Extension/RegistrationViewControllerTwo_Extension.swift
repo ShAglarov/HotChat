@@ -105,6 +105,15 @@ extension RegistrationViewControllerTwo {
     
     func elementsConfigure() {
         
+        phoneNumberOrEmailTextField.addTarget(self, action: #selector(editingTextFieldLowerased(text: )), for: .editingChanged)
+        phoneNumberOrEmailTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        
+        loginTextField.addTarget(self, action: #selector(editingTextFieldLowerased(text: )), for: .editingChanged)
+        loginTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        
+        passwordTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        passwordTextField.isSecureTextEntry = true
+        
         phoneNumberOrEmailTextField.textFieldConfigure(
             leftImageViewNamed: nil,
             textPlaceholder: "Phone number or email address",

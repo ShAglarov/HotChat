@@ -9,6 +9,7 @@ import UIKit
 
 class PersonsAccountViewController: UIViewController {
     
+    var person = Person()
     var firsName = String()
     var surName = String()
     var dateOfBirdh = String()
@@ -21,6 +22,8 @@ class PersonsAccountViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        
+        navigationItem.title = person.surName
     }
     
 

@@ -98,8 +98,6 @@ class RegistrationViewControllerOne: UIViewController {
         
         enterNextButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
         
-        let popUPOnErrorView = PopUpOnErrorView()
-        
         popUpErrorView.enterButton.addTarget(self,
                               action: #selector(showTextFieldAfterTouchScreen),
                               for: .touchUpInside)

@@ -15,22 +15,22 @@ class RegistrationViewControllerTwo: UIViewController {
     let imageVeiw = UIImageView()
     let tapGesture = UITapGestureRecognizer()
     let enterButton = UIButton()
-    
+
     var firsName = String()
     var surName = String()
     var dateOfBirdh = String()
     var age = Int()
     
-    var didRegister: (Person) -> Void = { person in }
-    
     let phoneNumberOrEmailTextField = UITextField()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     
+
+    
     func inputData() throws {
         
-        guard let phoneNumber = phoneNumberOrEmailTextField.text,
-              !phoneNumber.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterFirstName }
+        guard let phoneOrEmail = phoneNumberOrEmailTextField.text,
+              !phoneOrEmail.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterFirstName }
         
         guard let login = loginTextField.text,
               !login.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterSurName }
@@ -38,15 +38,29 @@ class RegistrationViewControllerTwo: UIViewController {
         guard let password = passwordTextField.text,
               !password.isEmpty else { throw ErrorInputDataRegistratioinViewControllerTwo.errorEnterDateOfBirdh }
         
+        let person: Person = {
+            let person = Person(fistName: firsName,
+                                surName: surName,
+                                dateOfBirdh: dateOfBirdh,
+                                age: age,
+                                phoneNumberOrEmail: phoneOrEmail,
+                                login: login,
+                                password: password)
+            
+            return person
+        }()
+        
+        guard let mainVC = navigationController?.viewControllers.first as? MainViewController else { return }
+    
+        mainVC.persons.append(person)
+        
     }
     
     @objc func presentToFinishedRegistrationVC() {
         
         do {
             try inputData()
-            
-            didRegister(createPerson())
-            
+                    
             navigationController?.popToRootViewController(animated: true)
             
         } catch {
@@ -85,8 +99,6 @@ class RegistrationViewControllerTwo: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         enterButton.addTarget(self, action: #selector(presentToFinishedRegistrationVC), for: .touchUpInside)
-        
-        let popUPOnErrorView = PopUpOnErrorView()
         
         popUpErrorView.enterButton.addTarget(self,
                               action: #selector(showTextFieldAfterTouchScreen),
