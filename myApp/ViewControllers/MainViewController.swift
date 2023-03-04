@@ -42,8 +42,7 @@ class MainViewController: UIViewController {
             person.login == loginTextField.text
         }
         
-        guard checkPerson?.login == loginTextField.text else { throw ErrorInputDataMainViewController.errorEnterLogin }
-        
+        guard checkPerson?.login != nil else { throw ErrorInputDataMainViewController.errorEnterLogin }
         guard checkPerson?.password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
         
         guard let indexOfPerson = persons.firstIndex(where: { $0 === checkPerson })
