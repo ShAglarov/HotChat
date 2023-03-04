@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
             person.login == loginTextField.text
         }
         
-        if checkPerson?.login == nil { throw ErrorInputDataMainViewController.errorEnterLogin }
+        guard checkPerson?.login == loginTextField.text else { throw ErrorInputDataMainViewController.errorEnterLogin }
         
         guard checkPerson?.password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
         
