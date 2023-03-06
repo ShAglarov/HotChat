@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UIViewController {
     
-    var persons = [Person]()
+    var person: Person?
+    let realmPersonBase = try! Realm()
     let scrollView = UIScrollView()
     let contentView = UIView()
     let imageVeiw = UIImageView()
@@ -36,29 +38,31 @@ class MainViewController: UIViewController {
         navigationController?.pushViewController(RegistrationViewControllerOne(), animated: true)
     }
     
-    func inputData() throws -> Int {
+    func inputData() throws -> (Int,Results<Person>) {
         
-        let checkPerson = persons.first { person in
+        let people = realmPersonBase.objects(Person.self)
+        
+        let checkPerson = people.first { person in
             person.login == loginTextField.text
         }
         
         guard checkPerson?.login != nil else { throw ErrorInputDataMainViewController.errorEnterLogin }
         guard checkPerson?.password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
         
-        guard let indexOfPerson = persons.firstIndex(where: { $0 === checkPerson })
+        guard let indexOfPerson = people.firstIndex(where: { $0 === checkPerson })
         else { throw ErrorInputDataMainViewController.notPerson }
         
-        return indexOfPerson
+        return (indexOfPerson, people)
     }
     
     @objc func checkEnterLoginAndPassword() {
         
         do {
-            let person = try inputData()
+            let (index, people) = try inputData()
             
             let personAccountVC = PersonsAccountViewController()
             
-            personAccountVC.person = persons[person]
+            personAccountVC.person = people[index]
             
             navigationController?.pushViewController(personAccountVC, animated: true)
             
@@ -75,6 +79,20 @@ class MainViewController: UIViewController {
         //проверка поворота экрана если она горизонтальная то сдвигаем scrollView немного вверх
         guard self.preferredInterfaceOrientationForPresentation.isLandscape == true else { return }
         scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
+    }
+    
+//    func render() {
+//        let people = realm.objects(Person.self)
+//
+//        for person in people {
+//            print("First name: \(person.fistName)\nSur name: \(person.surName)\nAge: \(person.age)\nlogin: \(person.login)\npassword: \(person.password)\nDate of birdh: \(person.dateOfBirdh)\nPhone number or Email: \(person.phoneNumberOrEmail)")
+//        }
+//    }
+    
+    func addRealmPerson(person: Person) {
+        realmPersonBase.beginWrite()
+        realmPersonBase.add(person)
+        try! realmPersonBase.commitWrite()
     }
     
     override func viewDidLoad() {
