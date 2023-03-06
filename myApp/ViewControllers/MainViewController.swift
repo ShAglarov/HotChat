@@ -10,7 +10,11 @@ import RealmSwift
 
 class MainViewController: UIViewController {
     
-    var person: Person?
+    var person: Person? {
+        didSet {
+            addRealmPerson(person: person ?? Person())
+        }
+    }
     let realmPersonBase = try! Realm()
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -104,7 +108,6 @@ class MainViewController: UIViewController {
         setScrollViewConstrains()
         elementsConfigure()
         setViewElementsConstraints()
-        
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)

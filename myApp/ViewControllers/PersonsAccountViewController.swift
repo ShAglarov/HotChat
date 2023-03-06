@@ -24,6 +24,14 @@ class PersonsAccountViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         navigationItem.title = person.surName
+        
+        print(person.fistName)
+        print(person.surName)
+        print(person.age)
+        print(person.dateOfBirdh)
+        print(person.phoneNumberOrEmail)
+        print(person.login)
+        print(person.password)
     }
     
 
