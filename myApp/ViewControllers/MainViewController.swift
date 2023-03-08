@@ -42,33 +42,25 @@ class MainViewController: UIViewController {
         navigationController?.pushViewController(RegistrationViewControllerOne(), animated: true)
     }
     
-    func inputData() throws -> (Int,Results<Person>) {
+    func inputData() throws{
         
         let people = realmPersonBase.objects(Person.self)
         
-        let checkPerson = people.first { person in
-            person.login == loginTextField.text
-        }
+        guard let indexOfPerson = people.firstIndex(where: { $0.login == loginTextField.text })
+        else { throw ErrorInputDataMainViewController.errorEnterLogin }
         
-        guard checkPerson?.login != nil else { throw ErrorInputDataMainViewController.errorEnterLogin }
-        guard checkPerson?.password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
+        guard people[indexOfPerson].password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
         
-        guard let indexOfPerson = people.firstIndex(where: { $0 === checkPerson })
-        else { throw ErrorInputDataMainViewController.notPerson }
+        let personAccountVC = PersonsAccountViewController()
+        personAccountVC.person = people[indexOfPerson]
         
-        return (indexOfPerson, people)
+        navigationController?.pushViewController(personAccountVC, animated: true)
     }
     
     @objc func checkEnterLoginAndPassword() {
         
         do {
-            let (index, people) = try inputData()
-            
-            let personAccountVC = PersonsAccountViewController()
-            
-            personAccountVC.person = people[index]
-            
-            navigationController?.pushViewController(personAccountVC, animated: true)
+            try inputData()
             
         } catch {
             textFieldDidBeginEditing(loginTextField, passwordTextField, enterButton, hide: true)
