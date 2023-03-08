@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UIViewController {
     
-    var persons = [Person]()
+    var person: Person? {
+        didSet {
+            addRealmPerson(person: person ?? Person())
+        }
+    }
+    let realmPersonBase = try! Realm()
     let scrollView = UIScrollView()
     let contentView = UIView()
     let imageVeiw = UIImageView()
@@ -36,32 +42,25 @@ class MainViewController: UIViewController {
         navigationController?.pushViewController(RegistrationViewControllerOne(), animated: true)
     }
     
-    func inputData() throws -> Int {
+    func inputData() throws{
         
-        let checkPerson = persons.first { person in
-            person.login == loginTextField.text
-        }
+        let people = realmPersonBase.objects(Person.self)
         
-        if checkPerson == nil { throw ErrorInputDataMainViewController.errorEnterLogin }
+        guard let indexOfPerson = people.firstIndex(where: { $0.login == loginTextField.text })
+        else { throw ErrorInputDataMainViewController.errorEnterLogin }
         
-        guard checkPerson?.password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
+        guard people[indexOfPerson].password == passwordTextField.text else { throw ErrorInputDataMainViewController.errorEnterPassword }
         
-        guard let indexOfPerson = persons.firstIndex(where: { $0 === checkPerson })
-        else { throw ErrorInputDataMainViewController.notPerson }
+        let personAccountVC = PersonsAccountViewController()
+        personAccountVC.person = people[indexOfPerson]
         
-        return indexOfPerson
+        navigationController?.pushViewController(personAccountVC, animated: true)
     }
     
     @objc func checkEnterLoginAndPassword() {
         
         do {
-            let person = try inputData()
-            
-            let personAccountVC = PersonsAccountViewController()
-            
-            personAccountVC.person = persons[person]
-            
-            navigationController?.pushViewController(personAccountVC, animated: true)
+            try inputData()
             
         } catch {
             textFieldDidBeginEditing(loginTextField, passwordTextField, enterButton, hide: true)
@@ -78,6 +77,12 @@ class MainViewController: UIViewController {
         scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
     }
     
+    func addRealmPerson(person: Person) {
+        realmPersonBase.beginWrite()
+        realmPersonBase.add(person)
+        try! realmPersonBase.commitWrite()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,7 +92,6 @@ class MainViewController: UIViewController {
         setScrollViewConstrains()
         elementsConfigure()
         setViewElementsConstraints()
-        
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)

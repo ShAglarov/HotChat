@@ -25,8 +25,6 @@ class RegistrationViewControllerTwo: UIViewController {
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     
-
-    
     func inputData() throws {
         
         guard let phoneOrEmail = phoneNumberOrEmailTextField.text,
@@ -52,8 +50,7 @@ class RegistrationViewControllerTwo: UIViewController {
         
         guard let mainVC = navigationController?.viewControllers.first as? MainViewController else { return }
     
-        mainVC.persons.append(person)
-        
+        mainVC.person = person
     }
     
     @objc func presentToFinishedRegistrationVC() {

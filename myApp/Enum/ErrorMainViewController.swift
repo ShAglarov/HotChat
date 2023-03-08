@@ -9,7 +9,6 @@ import Foundation
 enum ErrorInputDataMainViewController: LocalizedError {
     case errorEnterLogin
     case errorEnterPassword
-    case notPerson
     
     var errorDescription: String? {
         switch self {
@@ -26,10 +25,6 @@ enum ErrorInputDataMainViewController: LocalizedError {
                    your password?
                    We can help you log into your account
                    if you've forgotten your passrod
-                   """
-        case .notPerson:
-            return """
-                   Not person
                    """
         }
     }

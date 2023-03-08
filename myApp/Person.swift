@@ -5,15 +5,16 @@
 //  Created by Shamil Aglarov on 21.02.2023.
 //
 import UIKit
+import RealmSwift
 
-class Person {
-    var fistName: String
-    var surName: String
-    var dateOfBirdh: String
-    var age: Int
-    var phoneNumberOrEmail: String
-    var login: String
-    var password: String
+class Person: Object {
+    @objc dynamic var fistName: String
+    @objc dynamic var surName: String
+    @objc dynamic var dateOfBirdh: String
+    @objc dynamic var age: Int
+    @objc dynamic var phoneNumberOrEmail: String
+    @objc dynamic var login: String
+    @objc dynamic var password: String
     
     init(
         fistName: String,
@@ -33,7 +34,7 @@ class Person {
         self.password = password
     }
     
-    init()
+    override init()
     {
         self.fistName = ""
         self.age = 0
