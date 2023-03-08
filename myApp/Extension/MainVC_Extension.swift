@@ -44,6 +44,16 @@ extension MainViewController {
         scrollView.setContentOffset(CGPoint(x: 0, y: -1), animated: true)
     }
     
+    /// во время редактирования текста запрещаем  буквы с верхним регистром
+    @objc func editingTextFieldLowerased(text: UITextField) {
+        text.lowercasedText()
+    }
+    
+    /// во время редактирования текста запрещаем  ставить пробелы
+    @objc func editingTextFieldTrimming(text: UITextField) {
+        text.trimmingWiteSpacesText()
+    }
+    
     func viewsConfigure() {
         
         view.backgroundColor = UIColor(
@@ -83,7 +93,11 @@ extension MainViewController {
     }
     
     func elementsConfigure() {
-
+        
+        loginTextField.addTarget(self, action: #selector(editingTextFieldLowerased(text: )), for: .editingChanged)
+        loginTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(editingTextFieldTrimming(text: )), for: .editingChanged)
+        
         loginTextField.borderStyle = .roundedRect
         
         loginTextField.textFieldConfigure(

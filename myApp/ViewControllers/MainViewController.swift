@@ -77,14 +77,6 @@ class MainViewController: UIViewController {
         scrollView.setContentOffset(CGPoint(x: 0, y: view.bounds.height / 4), animated: true)
     }
     
-//    func render() {
-//        let people = realm.objects(Person.self)
-//
-//        for person in people {
-//            print("First name: \(person.fistName)\nSur name: \(person.surName)\nAge: \(person.age)\nlogin: \(person.login)\npassword: \(person.password)\nDate of birdh: \(person.dateOfBirdh)\nPhone number or Email: \(person.phoneNumberOrEmail)")
-//        }
-//    }
-    
     func addRealmPerson(person: Person) {
         realmPersonBase.beginWrite()
         realmPersonBase.add(person)
